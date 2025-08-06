@@ -4,7 +4,7 @@ import {NotepadText,ListChecks,StickyNote,UserCheck} from "lucide-react"
 function Sidebar(){
 
     return(
-        <div className="w-70 h-screen bg-white">
+        <div className="fixed mt-19 w-70 h-screen bg-white">
             <ul>
                 <li className={styles.list}><NotepadText /><button>Student Dashboard</button></li>
                 <li className={styles.list}><ListChecks /><button>My Plan</button></li>

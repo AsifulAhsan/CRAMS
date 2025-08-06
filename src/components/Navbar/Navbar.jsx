@@ -2,7 +2,7 @@ import { Code, Bell, CircleUserRound } from "lucide-react";
 import styles from "../Navbar/Navbar.module.css";
 function Navbar() {
   return (
-    <div className="flex gap-4 justify-between pt-2 px-4 bg-white shadow-md">
+    <div className="fixed w-full flex gap-4 justify-between pt-2 px-4 bg-white shadow-md">
       <div className="flex p-4 gap-2">
         <Code color="green" size="32" />
         <h1 className="text-3xl">IIUC</h1>

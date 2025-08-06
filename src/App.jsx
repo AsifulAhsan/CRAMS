@@ -7,11 +7,11 @@ import CourseTable from "./components/CourseTable/CourseTable";
 
 function App() {
   return (
-    <>
+    <div className="">
       <Navbar />
       <div className="flex gap-2">
         <Sidebar />
-        <div className="flex flex-col">
+        <div className="flex flex-col ml-70 mt-20">
           <HeroSec />
           <div className="flex">
             <Card
@@ -34,7 +34,7 @@ function App() {
           <CourseTable />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export default App;
