@@ -46,11 +46,11 @@ function CourseTable() {
         <div className="flex-col">
           <div className="gap-2">
             <p className="text-xl mb-8">Seats available</p>
-            <p className="mt-4 mb-8">CS101</p>
-            <p className=" mb-8">EC101</p>
-            <p className=" mb-8">MA101</p>
-            <p className=" mb-8">EN101</p>
-            <p className=" mb-8">HI101</p>
+            <p className="mt-4 mb-8">25/30</p>
+            <p className=" mb-8">23/30</p>
+            <p className=" mb-8">15/30</p>
+            <p className=" mb-8">28/30</p>
+            <p className=" mb-8">24/30</p>
           </div>
         </div>
         <div className="flex-col">
