@@ -1,17 +1,14 @@
-import { Star } from 'lucide-react';
+import { Star } from "lucide-react";
 
-function Card() {
+function Card({title, subtitle, description}) {
   return (
-    <div className='p-4' >
-        <div className="bg-white bg-opacity-80 border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-      <p> Current GPA</p>
-      <p className='text-4xl'>3.36</p>
-      <p>+0.12 From Previous Semester</p>
+    <div className="p-4">
+      <div className="bg-white bg-opacity-80 border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <p>{title}</p>
+        <p className="text-4xl">{subtitle}</p>
+        <p>{description}</p>
       </div>
-
     </div>
-
-    
   );
 }
 
