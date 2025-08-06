@@ -8,6 +8,7 @@
     
 }
 .list:hover{
-    background-color: #757575;
+    cursor: pointer;
+    background-color: #393E46;
     color: rgb(255, 255, 255);
 }
