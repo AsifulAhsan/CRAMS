@@ -8,8 +8,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <Sidebar/>
+      <div className="flex gap-2">
+      <Sidebar/>      
       <Card />
+      </div>
+      
      
     </>
   );
