@@ -17,7 +17,9 @@ function Navbar() {
         <Bell className={styles.navBtn} />
         <CircleUserRound className={styles.navBtn} />
       </div>
+      <p>exam are close</p>
     </div>
   );
 }
 export default Navbar;
+
