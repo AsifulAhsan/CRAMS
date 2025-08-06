@@ -1,0 +1,11 @@
+@import "tailwindcss";
+/*
+    #EEEEEE BG
+    #00ADB5 Btn
+    #393E46 Primary
+    #222831 full black
+*/
+
+body{
+    background-color: azure;
+}

@@ -1,0 +1,10 @@
+.navBtn{
+    cursor: pointer;
+}
+.navBtn:hover{
+    color: #00ADB5;
+}
+
+.navBg{
+    background-color: #EEEEEE;
+}
