@@ -18,7 +18,9 @@ function Navbar() {
         <CircleUserRound className={styles.navBtn} />
         <P>hELLOW</P> //comment your codes
       </div>
+      <p>exam are close</p>
     </div>
   );
 }
 export default Navbar;
+
