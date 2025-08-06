@@ -11,6 +11,8 @@ function App() {
       <div className="flex gap-2">
       <Sidebar/>      
       <Card />
+      <Card />
+      <Card />
       </div>
       
      
