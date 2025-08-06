@@ -16,9 +16,10 @@ function Navbar() {
       <div className="flex gap-6 p-4">
         <Bell className={styles.navBtn} />
         <CircleUserRound className={styles.navBtn} />
-        
+        <p>hELLOW</p> //comment your codes
       </div>
     </div>
   );
 }
 export default Navbar;
+
