@@ -26,10 +26,10 @@ function Sidebar() {
           </li>
         </Link>
         <Link to="/advisor-notes">
-        <li className={styles.list}>
-          <UserCheck />
-          Advisor Notes
-        </li>
+          <li className={styles.list}>
+            <UserCheck />
+            Advisor Notes
+          </li>
         </Link>
       </ul>
     </div>
