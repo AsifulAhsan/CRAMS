@@ -5,24 +5,32 @@ import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <div className="fixed mt-19 w-70 h-screen bg-white">
+    <div className="fixed mt-18 w-70 h-screen bg-white">
       <ul>
-        <li className={styles.list}>
-          <NotepadText />
-          <Link to="/">Student Dashboard</Link>
-        </li>
-        <li className={styles.list}>
-          <ListChecks />
-          <Link to="/course-manage">Course Management</Link>
-        </li>
-        <li className={styles.list}>
-          <StickyNote />
-          <button>Academic History</button>
-        </li>
+        <Link to="/">
+          <li className={styles.list}>
+            <NotepadText />
+            Student Dashboard
+          </li>
+        </Link>
+        <Link to="/course-manage">
+          <li className={styles.list}>
+            <ListChecks />
+            Course Management
+          </li>
+        </Link>
+        <Link to="/acad-history">
+          <li className={styles.list}>
+            <StickyNote />
+            Academic History
+          </li>
+        </Link>
+        <Link to="/advisor-notes">
         <li className={styles.list}>
           <UserCheck />
-          <button>Advisor Notes</button>
+          Advisor Notes
         </li>
+        </Link>
       </ul>
     </div>
   );

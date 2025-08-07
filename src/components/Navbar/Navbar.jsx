@@ -5,7 +5,7 @@ function Navbar() {
     <div className="fixed w-full flex gap-4 justify-between pt-2 px-4 bg-white shadow-md">
       <div className="flex p-4 gap-2">
         <Code color="green" size="32" />
-        <h1 className="text-3xl">IIUC</h1>
+        <h1 className="text-2xl">IIUC Student Panel</h1>
       </div>
       <div className="flex gap-8">
         <button className={styles.navBtn}>Dashboard</button>
