@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "../Advisor/AdvisorNav.module.css";
-import{CircleUser,} from "lucide-react"
+import{CircleUser,Bell,} from "lucide-react"
 
 const AdvisorNav = () => {
     return (
@@ -14,8 +14,8 @@ const AdvisorNav = () => {
                     <button className={styles.Navbtn}>Pending Approval</button>
 
                 </div>
-                <div className='ml-80 flex gap-4'>
-                    <button className={styles.Navbtn}></button>
+                <div className='ml-120 flex gap-4'>
+                    <button className={styles.Navbtn}><Bell /></button>
                     <button className={styles.Navbtn}><CircleUser /></button>
                 </div>
             </nav>
