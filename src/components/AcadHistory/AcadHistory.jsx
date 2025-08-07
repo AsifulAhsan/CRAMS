@@ -40,56 +40,69 @@ function AcadHistory() {
           description="On Track"
         />
       </div>
-      <table className="flex justify-between mx-4 bg-white p-4 rounded-xl border-1 border-gray-200">
-        
-        <div className="flex-col mx-4 my-2 w-full">
-          {/*First Col*/}
-          <p className="text-xl mb-8 ">Course</p>
-          <p className="mt-4 mb-8">
-            CS101 <br />
-            Programming 1
+      <div className="flex justify-between items-center bg-[#035f64] text-white mx-4 p-4 rounded-t-xl">
+        <h1 className="text-xl ml-4">Spring 2024</h1>
+        <div className="flex gap-8 mr-4">
+          <p className="text-lg">
+            Semester GPA <br />
+            3.75
           </p>
-          <p className=" mb-8">
-            EC101 <br />
-            Microeconomics
-          </p>
-          <p className=" mb-8">
-            MA101 <br />
-            Calculus 1
-          </p>
-          <p className=" mb-8">
-            EN101 <br />
-            English Literature 1
-          </p>
-          <p className=" mb-8">
-            HI101 <br />
-            History Teaching 1
+          <p className="text-lg">
+            Total Credits <br />
+            20
           </p>
         </div>
-        <div className="flex-col mx-4 my-2 w-full">
-          <p className="text-xl mb-8 ">Instructor</p>
-          <p className="mt-4 mb-16">Md. Ali Khan</p>
-          <p className=" mb-16">Rina Begum</p>
-          <p className=" mb-16">Mohammad Rashedul Islam</p>
-          <p className=" mb-16">Jamal Assad</p>
-          <p className=" mb-16">Shariar Mohammad Aqib</p>
-        </div>
-        <div className="flex-col mx-4 my-2 w-full">
-          <p className="text-xl mb-8 ">Credits</p>
-          <p className="mt-4 mb-16">3</p>
-          <p className=" mb-16">3</p>
-          <p className=" mb-16">4</p>
-          <p className=" mb-16">3</p>
-          <p className=" mb-16">2</p>
-        </div>
-        <div className="flex-col mx-4 my-2 w-full">
-          <p className="text-xl mb-8 ">Grade</p>
-          <p className="mt-4 mb-16">A</p>
-          <p className=" mb-16">A-</p>
-          <p className=" mb-16">B</p>
-          <p className=" mb-16">A+</p>
-          <p className=" mb-16">A+</p>
-        </div>
+      </div>
+
+      <table className="flex justify-around gap-8 mx-4 mb-4 bg-white p-4 rounded-bl-xl rounded-b-xl border-1 border-gray-200">
+          <div className="flex-col mx-4 my-2 w-full">
+            {/*First Col*/}
+            <p className="text-xl mb-8 ">Course</p>
+            <p className="mt-4 mb-8">
+              CS101 <br />
+              Programming 1
+            </p>
+            <p className=" mb-8">
+              EC101 <br />
+              Microeconomics
+            </p>
+            <p className=" mb-8">
+              MA101 <br />
+              Calculus 1
+            </p>
+            <p className=" mb-8">
+              EN101 <br />
+              English Literature 1
+            </p>
+            <p className=" mb-8">
+              HI101 <br />
+              History Teaching 1
+            </p>
+          </div>
+          <div className="flex-col mx-4 my-2 w-full">
+            <p className="text-xl mb-8 ">Instructor</p>
+            <p className="mt-4 mb-16">Md. Ali Khan</p>
+            <p className=" mb-16">Rina Begum</p>
+            <p className=" mb-16">Mohammad Rashedul Islam</p>
+            <p className=" mb-16">Jamal Assad</p>
+            <p className=" mb-16">Shariar Mohammad Aqib</p>
+          </div>
+          <div className="flex-col mx-4 my-2 w-full">
+            <p className="text-xl mb-8 ">Credits</p>
+            <p className="mt-4 mb-16">3</p>
+            <p className=" mb-16">3</p>
+            <p className=" mb-16">4</p>
+            <p className=" mb-16">3</p>
+            <p className=" mb-16">2</p>
+          </div>
+          <div className="flex-col mx-4 my-2 w-full">
+            <p className="text-xl mb-8 ">Grade</p>
+            <p className="mt-4 mb-16">A</p>
+            <p className=" mb-16">A-</p>
+            <p className=" mb-16">B</p>
+            <p className=" mb-16">A+</p>
+            <p className=" mb-16">A+</p>
+          </div>
       </table>
     </>
   );
