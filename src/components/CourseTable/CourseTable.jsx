@@ -56,25 +56,25 @@ function CourseTable() {
         <div className="flex-col">
           <div className="gap-2">
             <p className="text-xl mb-2">Actions</p>
-            <button className="mt-4 mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+            <button className="mt-4 mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
               Add to plan
             </button>
           </div>
-          <button className="mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+          <button className="mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
             Add to plan
           </button>
           <div>
-            <button className="mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+            <button className="mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
               Add to plan
             </button>
           </div>
           <div>
-            <button className="mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+            <button className="mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
               Add to plan
             </button>
           </div>
           <div>
-            <button className="mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+            <button className="mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
               Add to plan
             </button>
           </div>
