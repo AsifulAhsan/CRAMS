@@ -1,3 +1,5 @@
+import { Pencil, Trash2 } from "lucide-react";
+
 export default function AdminPage() {
   return (
     <div className="min-h-screen  py-10 px-0">
@@ -87,7 +89,7 @@ export default function AdminPage() {
               <h2 className="text-xl font-bold mb-4">
                 Current Assignments - Autumn 2025
               </h2>
-              <div>
+              <div className="overflow-x-auto">
                 <table className="min-w-full bg-white rounded-lg">
                   <thead className="bg-gray-50">
                     <tr>
@@ -111,12 +113,14 @@ export default function AdminPage() {
                       <td className="px-6 py-4">Programming 1</td>
                       <td className="px-6 py-4">Md. Ali Khan</td>
                       <td className="px-6 py-4">
-                        <button className="text-blue-600 hover:underline text-sm mr-2">
-                          Edit
-                        </button>
-                        <button className="text-red-600 hover:underline text-sm">
-                          Remove
-                        </button>
+                        <div className="flex flex-row gap-2">
+                          <button className="text-blue-600 flex items-center">
+                            <Pencil size={18} />
+                          </button>
+                          <button className="text-red-600 flex items-center">
+                            <Trash2 size={18} />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                     <tr>
@@ -124,12 +128,14 @@ export default function AdminPage() {
                       <td className="px-6 py-4">Microeconomics</td>
                       <td className="px-6 py-4">Rina Begum</td>
                       <td className="px-6 py-4">
-                        <button className="text-blue-600 hover:underline text-sm mr-2">
-                          Edit
-                        </button>
-                        <button className="text-red-600 hover:underline text-sm">
-                          Remove
-                        </button>
+                        <div className="flex flex-row gap-2">
+                          <button className="text-blue-600 flex items-center">
+                            <Pencil size={18} />
+                          </button>
+                          <button className="text-red-600 flex items-center">
+                            <Trash2 size={18} />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                     <tr>
@@ -137,12 +143,14 @@ export default function AdminPage() {
                       <td className="px-6 py-4">Calculus 1</td>
                       <td className="px-6 py-4">Mohammad Rashedul Islam</td>
                       <td className="px-6 py-4">
-                        <button className="text-blue-600 hover:underline text-sm mr-2">
-                          Edit
-                        </button>
-                        <button className="text-red-600 hover:underline text-sm">
-                          Remove
-                        </button>
+                        <div className="flex flex-row gap-2">
+                          <button className="text-blue-600 flex items-center">
+                            <Pencil size={18} />
+                          </button>
+                          <button className="text-red-600 flex items-center">
+                            <Trash2 size={18} />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                     <tr>
@@ -150,12 +158,14 @@ export default function AdminPage() {
                       <td className="px-6 py-4">Composition 1</td>
                       <td className="px-6 py-4">Jamal Assad</td>
                       <td className="px-6 py-4">
-                        <button className="text-blue-600 hover:underline text-sm mr-2">
-                          Edit
-                        </button>
-                        <button className="text-red-600 hover:underline text-sm">
-                          Remove
-                        </button>
+                        <div className="flex flex-row gap-2">
+                          <button className="text-blue-600 flex items-center">
+                            <Pencil size={18} />
+                          </button>
+                          <button className="text-red-600 flex items-center">
+                            <Trash2 size={18} />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                     <tr>
@@ -163,12 +173,14 @@ export default function AdminPage() {
                       <td className="px-6 py-4">History Teaching 1</td>
                       <td className="px-6 py-4">Shariar Mohammad Aqib</td>
                       <td className="px-6 py-4">
-                        <button className="text-blue-600 hover:underline text-sm mr-2">
-                          Edit
-                        </button>
-                        <button className="text-red-600 hover:underline text-sm">
-                          Remove
-                        </button>
+                        <div className="flex flex-row gap-2">
+                          <button className="text-blue-600 flex items-center">
+                            <Pencil size={18} />
+                          </button>
+                          <button className="text-red-600 flex items-center">
+                            <Trash2 size={18} />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   </tbody>
