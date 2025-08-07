@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
-import HeroSec from "./components/HeroSection/Hero";
-import Card from "./components/Card/Card";
-import CourseTable from "./components/CourseTable/CourseTable";
+import CourseManage from "./components/CourseManage/CourseManage";
+import StudentDashboard from "./components/StudentDashboard/StudentDashboard";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
@@ -12,26 +12,7 @@ function App() {
       <div className="flex gap-2">
         <Sidebar />
         <div className="flex flex-col ml-70 mt-20">
-          <HeroSec />
-          <div className="flex">
-            <Card
-              title="Current CGPA"
-              subtitle="3.67"
-              description="+0.12 from last semester"
-            />
-            <Card title="Credits" subtitle="67" description="53 more needed" />
-            <Card
-              title="Plan Status"
-              subtitle="Pending"
-              description="Awaiting advisor review"
-            />
-            <Card
-              title="Next Semester"
-              subtitle="AUT '25"
-              description="Registrition opens soon"
-            />
-          </div>
-          <CourseTable />
+          <Outlet />
         </div>
       </div>
     </div>
