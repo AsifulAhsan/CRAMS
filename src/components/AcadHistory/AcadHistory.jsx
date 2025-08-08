@@ -49,7 +49,7 @@ function AcadHistory() {
           </p>
           <p className="text-lg">
             Total Credits <br />
-            20
+            15
           </p>
         </div>
       </div>
