@@ -12,6 +12,7 @@ import AdvisorPanel from "./components/Advisor/AdvisorPanel.jsx";
 import CourseManage from "./components/CourseManage/CourseManage.jsx";
 import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
 import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
+import UserManage from "./components/AdminPage/UserManage.jsx";
 
 console.log("🚀 main.jsx: Starting with basic routes...");
 
@@ -41,6 +42,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute requiredRole="admin">
         <AdminPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/users",
+    element: (
+      <ProtectedRoute requiredRole="admin">
+        <UserManage />
       </ProtectedRoute>
     ),
   },

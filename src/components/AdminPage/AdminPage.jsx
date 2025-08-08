@@ -9,9 +9,9 @@ export default function AdminPage() {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error('Error logging out:', error);
+      console.error("Error logging out:", error);
     }
   };
 
@@ -28,7 +28,7 @@ export default function AdminPage() {
               Dashboard
             </button>
             <button
-              onClick={() => (window.location.href = "/admin/users")}
+              onClick={() => navigate("/admin/users")}
               className="px-4 py-2 text-gray-600 hover:text-[#035f64] transition-colors"
             >
               User Manage
