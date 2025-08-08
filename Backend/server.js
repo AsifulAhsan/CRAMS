@@ -2,11 +2,15 @@
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
+
+import Courseroute from "./Route/Course.route.js"
+
 dotenv.config();
 const Port=process.env.Port || 4000;
 const URI = process.env.MongoDBURI;
 
 const app = express()
+
 //connect to MongoDB
 try {
     mongoose.connect(URI,{
@@ -17,6 +21,9 @@ try {
 } catch (error) {
     console.log("Error=", error);
 }
+
+///defining route
+app.use("/course",Courseroute);
 
 
 
