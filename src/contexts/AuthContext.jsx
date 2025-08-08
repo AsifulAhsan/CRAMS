@@ -69,6 +69,7 @@ export function AuthProvider({ children }) {
         const userDoc = await getDoc(doc(db, "users", userCredential.user.uid));
         if (userDoc.exists()) {
           const role = userDoc.data().role;
+          console.log("🎭 User role from Firestore:", role);
           setUserRole(role);
           console.log("User role set to:", role);
         } else {
@@ -178,26 +179,37 @@ export function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       try {
         console.log("Auth state changed:", user ? "User logged in" : "No user");
+        if (user) {
+          console.log("👤 User email:", user.email);
+          console.log("👤 User UID:", user.uid);
+        }
 
         if (user) {
           setCurrentUser(user);
-          console.log("Fetching user role from Firestore...");
 
-          // Fetch user role from Firestore
-          try {
-            await enableNetwork(db);
-            const userDoc = await getDoc(doc(db, "users", user.uid));
-            if (userDoc.exists()) {
-              const role = userDoc.data().role;
-              setUserRole(role);
-              console.log("User role loaded:", role);
-            } else {
-              console.warn("User document not found in Firestore");
+          // Only fetch role if it hasn't been set yet (to avoid overriding login function)
+          if (!userRole) {
+            console.log("Fetching user role from Firestore...");
+
+            // Fetch user role from Firestore
+            try {
+              await enableNetwork(db);
+              const userDoc = await getDoc(doc(db, "users", user.uid));
+              if (userDoc.exists()) {
+                const role = userDoc.data().role;
+                console.log("🎭 User role loaded from Firestore:", role);
+                setUserRole(role);
+                console.log("User role loaded:", role);
+              } else {
+                console.warn("User document not found in Firestore");
+                setUserRole("student");
+              }
+            } catch (error) {
+              console.error("Error fetching user role:", error);
               setUserRole("student");
             }
-          } catch (error) {
-            console.error("Error fetching user role:", error);
-            setUserRole("student");
+          } else {
+            console.log("🎭 User role already set to:", userRole);
           }
         } else {
           setCurrentUser(null);
