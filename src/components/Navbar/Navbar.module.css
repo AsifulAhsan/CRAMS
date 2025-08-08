@@ -4,14 +4,18 @@
   transition: color 0.2s;
 }
 .navBtn:hover {
-  color: #035f64;
+  color: black;
 }
 
 .navBg {
-  background-color: #eeeeee;
+  background-color: hsl(0, 0%, 91%);
 }
 .active {
-  background-color: #035f64 !important; /* Matches sidebar active color */
-  color: #ffffff !important; /* White text for contrast */
+  transition: all;
+  transition-duration: 300ms;
+  padding: 0.4rem 1.5rem;
+  border-bottom: 0.4rem solid;
+  border-color: #035f64;
+  color: black !important; /* White text for contrast */
   border-radius: 4px; /* Optional: Rounds edges like sidebar */
 }
