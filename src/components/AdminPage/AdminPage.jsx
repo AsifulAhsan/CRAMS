@@ -9,6 +9,17 @@ export default function AdminPage() {
           <h1 className="text-3xl font-bold">IIUC Admin Panel</h1>
         </div>
         <div className="flex gap-6 p-4">
+          <div className="flex gap-4">
+            <button className="px-4 py-2 text-[#035f64] border-b-2 border-[#035f64]">
+              Dashboard
+            </button>
+            <button
+              onClick={() => (window.location.href = "/admin/users")}
+              className="px-4 py-2 text-gray-600 hover:text-[#035f64] transition-colors"
+            >
+              User Manage
+            </button>
+          </div>
           <Bell className="w-6 h-6 text-gray-600 hover:text-[#035f64] cursor-pointer transition-colors" />
           <CircleUserRound className="w-6 h-6 text-gray-600 hover:text-[#035f64] cursor-pointer transition-colors" />
         </div>

@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CourseManage from "./components/CourseManage/CourseManage.jsx";
 import StudentDashboard from "./components/StudentDashboard/StudentDashboard.jsx";
 import AdminPage from "./components/AdminPage/AdminPage.jsx";
+import UserManage from "./components/AdminPage/UserManage.jsx";
 import AdvisorPanel from "./components/Advisor/AdvisorPanel";
 import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
 import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPage />,
+  },
+  {
+    path: "/admin/users",
+    element: <UserManage />,
   },
   {
     path: "/advisor",
