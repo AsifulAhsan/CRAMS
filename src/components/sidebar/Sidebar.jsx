@@ -1,16 +1,20 @@
 import React from "react";
 import styles from "./Sidebar.module.css";
 import { NotepadText, ListChecks, StickyNote, UserCheck } from "lucide-react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function Sidebar() {
+  const location = useLocation();
+
   return (
     <div className="fixed mt-18 w-70 h-screen bg-white border-r-1 border-gray-200">
       <ul>
         <NavLink
           to="/dashboard"
           className={({ isActive }) =>
-            isActive ? `${styles.list} ${styles.active}` : styles.list
+            isActive && location.pathname === "/dashboard"
+              ? `${styles.list} ${styles.active}`
+              : styles.list
           }
         >
           <li>
