@@ -1,4 +1,5 @@
 import { User } from "lucide-react";
+import styles from "./AdvisorSidebar.module.css";
 
 function AdvisorSidebar() {
   return (
@@ -12,79 +13,73 @@ function AdvisorSidebar() {
       </div>
       <div className="flex-1 overflow-y-auto">
         <ul className="mt-2">
-          <li className="flex items-center gap-3 px-4 py-3 bg-[#035f64] text-white cursor-pointer">
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white bg-opacity-20">
-              <User className="text-white" size={28} />
+          <li className={`${styles.studentItem} ${styles.active}`}>
+            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
+              <User className="text-gray-600" size={28} />
             </span>
             <div>
-              <div className="font-semibold text-white">
+              <div className={`font-semibold ${styles.studentName}`}>
                 Shariar Mohammad Aqib
               </div>
-              <div className="text-xs text-white text-opacity-80">
-                ID: 1234567
-              </div>
+              <div className={`text-xs ${styles.studentId}`}>ID: 1234567</div>
             </div>
           </li>
-          <li className="flex items-center gap-3 px-4 py-3 hover:bg-[#035f64] hover:text-white cursor-pointer group">
+          <li className={styles.studentItem}>
             <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
-              <User
-                className="text-gray-400 group-hover:text-white"
-                size={28}
-              />
+              <User className="text-gray-600" size={28} />
             </span>
             <div>
-              <div className="font-semibold text-gray-900 group-hover:text-white">
+              <div
+                className={`font-semibold text-gray-900 ${styles.studentName}`}
+              >
                 Asiful Ahsan Wasif
               </div>
-              <div className="text-xs text-gray-500 group-hover:text-white">
+              <div className={`text-xs text-gray-500 ${styles.studentId}`}>
                 ID: 7654321
               </div>
             </div>
           </li>
-          <li className="flex items-center gap-3 px-4 py-3 hover:bg-[#035f64] hover:text-white cursor-pointer group">
+          <li className={styles.studentItem}>
             <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
-              <User
-                className="text-gray-400 group-hover:text-white"
-                size={28}
-              />
+              <User className="text-gray-600" size={28} />
             </span>
             <div>
-              <div className="font-semibold text-gray-900 group-hover:text-white">
+              <div
+                className={`font-semibold text-gray-900 ${styles.studentName}`}
+              >
                 Mohammad Hossain Bhai
               </div>
-              <div className="text-xs text-gray-500 group-hover:text-white">
+              <div className={`text-xs text-gray-500 ${styles.studentId}`}>
                 ID: 9876543
               </div>
             </div>
           </li>
-          <li className="flex items-center gap-3 px-4 py-3 hover:bg-[#035f64] hover:text-white cursor-pointer group">
+          <li className={styles.studentItem}>
             <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
-              <User
-                className="text-gray-400 group-hover:text-white"
-                size={28}
-              />
+              <User className="text-gray-600" size={28} />
             </span>
             <div>
-              <div className="font-semibold text-gray-900 group-hover:text-white">
+              <div
+                className={`font-semibold text-gray-900 ${styles.studentName}`}
+              >
                 Abdullah Al Mahfuz
               </div>
-              <div className="text-xs text-gray-500 group-hover:text-white">
+              <div className={`text-xs text-gray-500 ${styles.studentId}`}>
                 ID: 3456789
               </div>
             </div>
           </li>
-          <li className="flex items-center gap-3 px-4 py-3 hover:bg-[#035f64] hover:text-white cursor-pointer group">
+          <li className={styles.studentItem}>
             <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
-              <User
-                className="text-gray-400 group-hover:text-white"
-                size={28}
-              />
+              <User className="text-gray-600" size={28} />
             </span>
             <div>
-              <div className="font-semibold text-gray-900 group-hover:text-white">
+              <div
+                className={`font-semibold text-gray-900 ${styles.studentName}`}
+              >
                 Mohammad Imrun Abid
               </div>
-              <div className="text-xs text-gray-500 group-hover:text-white">
+              <div className={`text-xs text-gray-500 ${styles.studentId}`}>
                 ID: 5678901
               </div>
             </div>
