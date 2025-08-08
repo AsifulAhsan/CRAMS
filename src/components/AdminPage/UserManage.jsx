@@ -23,7 +23,7 @@ export default function UserManage() {
     department: "",
     password: "",
   });
-  const { createUserAccount } = useAuth();
+  const { createUserAccountForAdmin } = useAuth();
 
   useEffect(() => {
     fetchUsers();
@@ -32,6 +32,8 @@ export default function UserManage() {
   async function fetchUsers() {
     try {
       setLoading(true);
+      console.log("Fetching users from Firestore...");
+
       // Enable network connection
       await enableNetwork(db);
 
@@ -41,6 +43,8 @@ export default function UserManage() {
         id: doc.id,
         ...doc.data(),
       }));
+
+      console.log("Fetched users:", usersList);
       setUsers(usersList);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -53,8 +57,8 @@ export default function UserManage() {
   async function handleCreateUser(e) {
     e.preventDefault();
 
-    if (!newUser.name || !newUser.studentId) {
-      alert("Please fill in all required fields (Name and Student ID)");
+    if (!newUser.name || !newUser.studentId || !newUser.email) {
+      alert("Please fill in all required fields (Name, ID, and Email)");
       return;
     }
 
@@ -65,6 +69,7 @@ export default function UserManage() {
       const userData = {
         name: newUser.name,
         studentId: newUser.studentId,
+        email: newUser.email,
         role: newUser.role,
         department: newUser.department,
         password: newUser.password || "defaultPassword123",
@@ -72,7 +77,9 @@ export default function UserManage() {
 
       console.log("Creating user:", userData);
 
-      await createUserAccount(userData);
+      await createUserAccountForAdmin(userData);
+
+      console.log("User created successfully, refreshing user list...");
 
       // Reset form
       setNewUser({
@@ -85,8 +92,11 @@ export default function UserManage() {
       });
       setShowCreateForm(false);
 
-      // Refresh users list
-      await fetchUsers();
+      // Refresh users list with a small delay to ensure Firestore is updated
+      setTimeout(async () => {
+        await fetchUsers();
+        console.log("User list refreshed after timeout");
+      }, 1000);
 
       alert("User created successfully!");
     } catch (error) {
@@ -95,7 +105,7 @@ export default function UserManage() {
       let errorMessage = "Error creating user: " + error.message;
 
       if (error.code === "auth/email-already-in-use") {
-        errorMessage = "A user with this Student ID already exists.";
+        errorMessage = "A user with this Student ID or Email already exists.";
       } else if (error.code === "auth/weak-password") {
         errorMessage =
           "Password is too weak (should be at least 6 characters).";
@@ -158,13 +168,34 @@ export default function UserManage() {
                 Manage user accounts and permissions.
               </p>
             </div>
-            <button
-              onClick={() => setShowCreateForm(true)}
-              className="bg-[#035f64] text-white px-4 py-2 rounded-lg hover:bg-[#024a4e] transition flex items-center gap-2"
-            >
-              <Plus size={20} />
-              Create User
-            </button>
+            <div className="flex gap-2">
+              <button
+                onClick={fetchUsers}
+                className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition flex items-center gap-2"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
+                </svg>
+                Refresh
+              </button>
+              <button
+                onClick={() => setShowCreateForm(true)}
+                className="bg-[#035f64] text-white px-4 py-2 rounded-lg hover:bg-[#024a4e] transition flex items-center gap-2"
+              >
+                <Plus size={20} />
+                Create User
+              </button>
+            </div>
           </div>
 
           {/* Create User Form */}
@@ -188,12 +219,24 @@ export default function UserManage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-1">Student ID *</label>
+                  <label className="block text-sm mb-1">ID *</label>
                   <input
                     type="text"
                     value={newUser.studentId}
                     onChange={(e) =>
                       setNewUser({ ...newUser, studentId: e.target.value })
+                    }
+                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm mb-1">Email *</label>
+                  <input
+                    type="email"
+                    value={newUser.email}
+                    onChange={(e) =>
+                      setNewUser({ ...newUser, email: e.target.value })
                     }
                     className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
@@ -265,7 +308,7 @@ export default function UserManage() {
                     Name
                   </th>
                   <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
-                    Student ID
+                    ID
                   </th>
                   <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
                     Email

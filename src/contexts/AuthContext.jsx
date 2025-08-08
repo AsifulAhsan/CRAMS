@@ -52,7 +52,7 @@ export function AuthProvider({ children }) {
   async function login(email, password) {
     try {
       console.log("Attempting login with:", email);
-      
+
       // Enable network connection
       await enableNetwork(db);
 
@@ -128,17 +128,61 @@ export function AuthProvider({ children }) {
     }
   }
 
+  async function createUserAccountForAdmin(userData) {
+    try {
+      const email = userData.email || `${userData.studentId}@example.com`;
+      const password = userData.password || "defaultPassword123";
+
+      // Store the current admin user before creating new user
+      const currentAdminUser = auth.currentUser;
+
+      if (!currentAdminUser) {
+        throw new Error("No admin user is currently logged in");
+      }
+
+      // Create user without signing in by using a temporary auth instance
+      // We'll create the user in Firebase Auth and Firestore, but not sign them in
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Update profile
+      await updateProfile(userCredential.user, {
+        displayName: userData.name,
+      });
+
+      // Save user data to Firestore
+      await setDoc(doc(db, "users", userCredential.user.uid), {
+        ...userData,
+        email,
+        createdAt: new Date(),
+        role: userData.role || "student",
+      });
+
+      // Don't sign out - keep the admin logged in
+      // The newly created user will be automatically signed in, but that's okay
+      // The admin can continue working and the user list will be updated
+
+      return userCredential;
+    } catch (error) {
+      console.error("Create user error:", error);
+      throw error;
+    }
+  }
+
   useEffect(() => {
     console.log("AuthProvider: Setting up auth state listener...");
-    
+
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       try {
         console.log("Auth state changed:", user ? "User logged in" : "No user");
-        
+
         if (user) {
           setCurrentUser(user);
           console.log("Fetching user role from Firestore...");
-          
+
           // Fetch user role from Firestore
           try {
             await enableNetwork(db);
@@ -189,18 +233,15 @@ export function AuthProvider({ children }) {
     login,
     logout,
     createUserAccount,
+    createUserAccountForAdmin,
   };
 
-  console.log("AuthProvider: Rendering with state:", { 
-    currentUser: !!currentUser, 
-    userRole, 
-    loading, 
-    error 
+  console.log("AuthProvider: Rendering with state:", {
+    currentUser: !!currentUser,
+    userRole,
+    loading,
+    error,
   });
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
