@@ -19,10 +19,13 @@ const router = createBrowserRouter([
       { path: "*", element: <NotFoundPage /> },
       { path: "/", element: <StudentDashboard /> },
       { path: "/course-manage", element: <CourseManage /> },
-      { path: "/admin", element: <AdminPage /> },
       { path: "/advisor-notes", element: <AdvisorNotes /> },
       { path: "/acad-history", element: <AcadHistory /> },
     ],
+  },
+  {
+    path: "/admin",
+    element: <AdminPage />,
   },
   {
     path: "/advisor",
