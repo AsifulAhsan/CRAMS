@@ -1,14 +1,15 @@
-.list{
-    background-color: (#d9d9d9);
-     
-
-    padding: 0.8rem 1rem 0.8rem 1rem;
-    display:flex;
-    gap: 0.2rem;
-    
+.list {
+  background-color: (#d9d9d9);
+  padding: 0.8rem 1rem 0.8rem 1rem;
+  display: flex;
+  gap: 0.8rem;
 }
-.list:hover{
-    cursor: pointer;
-    background-color: #393E46;
-    color: rgb(255, 255, 255);
+.list:hover {
+  cursor: pointer;
+  color: #035f64;
+  background-color: white;
+}
+.active {
+  background-color: #035f64 !important; /* Ensures active state overrides hover */
+  color: #ffffff !important;
 }

@@ -2,7 +2,7 @@ function CourseTable() {
   return (
     <div className="mx-4 my-2">
       <p className="text-2xl font-medium">All Courses</p>
-      <table className="flex gap-12 mt-8 mb-4 bg-white p-8 rounded-xl border-1 border-gray-200">
+      <table className="flex gap-12 mt-4 mb-4 bg-white p-8 rounded-xl border-1 border-gray-200">
         <div className="flex-col">
           <div className="gap-2">
             <p className="text-xl mb-8">Course Code</p>
@@ -56,25 +56,25 @@ function CourseTable() {
         <div className="flex-col">
           <div className="gap-2">
             <p className="text-xl mb-2">Actions</p>
-            <button className="mt-4 mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+            <button className="mt-4 mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
               Add to plan
             </button>
           </div>
-          <button className="mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+          <button className="mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
             Add to plan
           </button>
           <div>
-            <button className="mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+            <button className="mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
               Add to plan
             </button>
           </div>
           <div>
-            <button className="mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+            <button className="mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
               Add to plan
             </button>
           </div>
           <div>
-            <button className="mb-4 bg-[#222831] text-white px-2 py-2 rounded-md">
+            <button className="mb-4 bg-[#035f64] text-white px-2 py-2 rounded-md cursor-pointer">
               Add to plan
             </button>
           </div>

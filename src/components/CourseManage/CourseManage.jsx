@@ -3,8 +3,8 @@ import React from "react";
 function CourseManage() {
   return (
     <div className="mx-4 my-2">
-      <p className="text-4xl font-medium">Course Management</p>
-      <table className="flex gap-12 mt-8 mb-4 bg-white p-8 rounded-xl border-1 border-gray-200">
+      <p className="text-3xl font-medium">Course Management</p>
+      <table className="flex gap-12 mt-4 mb-4 bg-white p-8 rounded-xl border-1 border-gray-200">
         <div className="flex-col">
           <div className="gap-2">
             <p className="text-xl mb-8">Course</p>

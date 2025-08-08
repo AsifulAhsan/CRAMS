@@ -1,10 +1,21 @@
-.navBtn{
-    cursor: pointer;
+.navBtn {
+  cursor: pointer;
+  padding: 0.5rem 1rem; /* Added padding for button-like appearance */
+  transition: color 0.2s;
 }
-.navBtn:hover{
-    color: #00ADB5;
+.navBtn:hover {
+  color: black;
 }
 
-.navBg{
-    background-color: #EEEEEE;
+.navBg {
+  background-color: hsl(0, 0%, 91%);
+}
+.active {
+  transition: all;
+  transition-duration: 300ms;
+  padding: 0.4rem 1.5rem;
+  border-bottom: 0.4rem solid;
+  border-color: #035f64;
+  color: black !important; /* White text for contrast */
+  border-radius: 4px; /* Optional: Rounds edges like sidebar */
 }
