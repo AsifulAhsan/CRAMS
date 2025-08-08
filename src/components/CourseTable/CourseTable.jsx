@@ -2,7 +2,7 @@ function CourseTable() {
   return (
     <div className="mx-4 my-2">
       <p className="text-2xl font-medium">All Courses</p>
-      <table className="flex gap-12 mt-4 mb-4 bg-white p-8 rounded-xl border-1 border-gray-200">
+      <table className="flex gap-12 mt-4 mb-4 bg-white p-8 rounded-xl border-1 border-gray-300">
         <div className="flex-col">
           <div className="gap-2">
             <p className="text-xl mb-8">Course Code</p>
