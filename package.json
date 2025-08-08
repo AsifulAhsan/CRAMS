@@ -7,11 +7,19 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup-admin": "node setup-admin.js",
+    "create-test-user": "node create-test-user.js",
+    "create-advisor": "node create-advisor-user.js",
+    "test-connection": "node test-firebase-connection.js",
+    "test-all-users": "node test-all-users.js",
+    "firebase-setup": "node enable-firestore.js",
+    "fix-admin": "node fix-admin-user.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "express": "^4.18.2",
+    "firebase": "^10.12.0",
     "lucide-react": "^0.536.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

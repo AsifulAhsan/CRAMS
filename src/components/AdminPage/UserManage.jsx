@@ -1,106 +1,128 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Pencil, Trash2, Bell, CircleUserRound, Plus } from "lucide-react";
+import { useAuth } from "../../contexts/AuthContext";
 import {
-  Pencil,
-  Trash2,
-  Plus,
-  Search,
-  Filter,
-  Bell,
-  CircleUserRound,
-} from "lucide-react";
-// import { userAPI, authAPI } from "../../services/api";
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  enableNetwork,
+} from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 export default function UserManage() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState("all");
-
-  // Real data from API
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    userType: "student",
-    department: "",
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [creatingUser, setCreatingUser] = useState(false);
+  const [newUser, setNewUser] = useState({
+    name: "",
     studentId: "",
-    phone: "",
+    email: "",
+    role: "student",
+    department: "",
+    password: "",
   });
+  const { createUserAccount } = useAuth();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
-  const handleSubmit = (e) => {
+  async function fetchUsers() {
+    try {
+      setLoading(true);
+      // Enable network connection
+      await enableNetwork(db);
+
+      const usersCollection = collection(db, "users");
+      const usersSnapshot = await getDocs(usersCollection);
+      const usersList = usersSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setUsers(usersList);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      alert("Error fetching users: " + error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleCreateUser(e) {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    const newUser = {
-      id: users.length + 1,
-      name: `${formData.firstName} ${formData.lastName}`,
-      email: formData.email,
-      type: formData.userType,
-      status: "active",
-      createdAt: new Date().toISOString().split("T")[0],
-    };
 
-    setUsers((prev) => [...prev, newUser]);
+    if (!newUser.name || !newUser.studentId) {
+      alert("Please fill in all required fields (Name and Student ID)");
+      return;
+    }
 
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      userType: "student",
-      department: "",
-      studentId: "",
-      phone: "",
-    });
+    try {
+      setCreatingUser(true);
 
-    alert("User created successfully!");
-  };
+      // Prepare user data
+      const userData = {
+        name: newUser.name,
+        studentId: newUser.studentId,
+        role: newUser.role,
+        department: newUser.department,
+        password: newUser.password || "defaultPassword123",
+      };
 
-  const deleteUser = (userId) => {
+      console.log("Creating user:", userData);
+
+      await createUserAccount(userData);
+
+      // Reset form
+      setNewUser({
+        name: "",
+        studentId: "",
+        email: "",
+        role: "student",
+        department: "",
+        password: "",
+      });
+      setShowCreateForm(false);
+
+      // Refresh users list
+      await fetchUsers();
+
+      alert("User created successfully!");
+    } catch (error) {
+      console.error("Error creating user:", error);
+
+      let errorMessage = "Error creating user: " + error.message;
+
+      if (error.code === "auth/email-already-in-use") {
+        errorMessage = "A user with this Student ID already exists.";
+      } else if (error.code === "auth/weak-password") {
+        errorMessage =
+          "Password is too weak (should be at least 6 characters).";
+      } else if (error.code === "auth/invalid-email") {
+        errorMessage = "Invalid email format.";
+      } else if (error.message.includes("INTERNAL ASSERTION FAILED")) {
+        errorMessage = "Firebase internal error. Please try again.";
+      }
+
+      alert(errorMessage);
+    } finally {
+      setCreatingUser(false);
+    }
+  }
+
+  async function handleDeleteUser(userId) {
     if (window.confirm("Are you sure you want to delete this user?")) {
-      setUsers((prev) => prev.filter((user) => user.id !== userId));
+      try {
+        await deleteDoc(doc(db, "users", userId));
+        fetchUsers();
+        alert("User deleted successfully!");
+      } catch (error) {
+        console.error("Error deleting user:", error);
+        alert("Error deleting user: " + error.message);
+      }
     }
-  };
-
-  const filteredUsers = users.filter((user) => {
-    const matchesSearch =
-      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filterType === "all" || user.type === filterType;
-    return matchesSearch && matchesFilter;
-  });
-
-  const getStatusColor = (status) => {
-    return status === "active"
-      ? "text-green-600 bg-green-100"
-      : "text-red-600 bg-red-100";
-  };
-
-  const getTypeColor = (type) => {
-    switch (type) {
-      case "admin":
-        return "text-purple-600 bg-purple-100";
-      case "advisor":
-        return "text-blue-600 bg-blue-100";
-      case "student":
-        return "text-green-600 bg-green-100";
-      default:
-        return "text-gray-600 bg-gray-100";
-    }
-  };
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -129,274 +151,199 @@ export default function UserManage() {
       {/* Main Content */}
       <div className="pt-25 px-6 py-10">
         <div className="bg-white rounded-xl shadow-lg p-10 w-full max-w-7xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-1">User Management</h1>
-            <p className="text-gray-500">
-              Create and manage user accounts for students, advisors, and
-              administrators.
-            </p>
+          <div className="mb-8 flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold mb-1">User Management</h1>
+              <p className="text-gray-500">
+                Manage user accounts and permissions.
+              </p>
+            </div>
+            <button
+              onClick={() => setShowCreateForm(true)}
+              className="bg-[#035f64] text-white px-4 py-2 rounded-lg hover:bg-[#024a4e] transition flex items-center gap-2"
+            >
+              <Plus size={20} />
+              Create User
+            </button>
           </div>
 
-          {/* Create User Section - Top */}
-          <div className="bg-gray-50 rounded-lg p-6 mb-8">
-            <h2 className="text-xl font-bold mb-4">Create New User</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Create User Form */}
+          {showCreateForm && (
+            <div className="mb-8 p-6 border rounded-lg bg-gray-50">
+              <h2 className="text-xl font-bold mb-4">Create New User</h2>
+              <form
+                onSubmit={handleCreateUser}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              >
                 <div>
-                  <label className="block text-xs font-medium mb-1 text-gray-700">
-                    First Name *
-                  </label>
+                  <label className="block text-sm mb-1">Full Name *</label>
                   <input
                     type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
+                    value={newUser.name}
+                    onChange={(e) =>
+                      setNewUser({ ...newUser, name: e.target.value })
+                    }
+                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
-                    className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium mb-1 text-gray-700">
-                    Last Name *
-                  </label>
+                  <label className="block text-sm mb-1">Student ID *</label>
                   <input
                     type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
+                    value={newUser.studentId}
+                    onChange={(e) =>
+                      setNewUser({ ...newUser, studentId: e.target.value })
+                    }
+                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
-                    className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium mb-1 text-gray-700">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium mb-1 text-gray-700">
-                    Account Type *
-                  </label>
+                  <label className="block text-sm mb-1">Role</label>
                   <select
-                    name="userType"
-                    value={formData.userType}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
+                    value={newUser.role}
+                    onChange={(e) =>
+                      setNewUser({ ...newUser, role: e.target.value })
+                    }
+                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="student">Student</option>
                     <option value="advisor">Advisor</option>
-                    <option value="admin">Administrator</option>
+                    <option value="admin">Admin</option>
                   </select>
                 </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
-                  <label className="block text-xs font-medium mb-1 text-gray-700">
-                    Password *
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    required
-                    minLength="8"
-                    className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium mb-1 text-gray-700">
-                    Confirm Password *
-                  </label>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleInputChange}
-                    required
-                    minLength="8"
-                    className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium mb-1 text-gray-700">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  {formData.userType === "student" ? (
-                    <>
-                      <label className="block text-xs font-medium mb-1 text-gray-700">
-                        Student ID
-                      </label>
-                      <input
-                        type="text"
-                        name="studentId"
-                        value={formData.studentId}
-                        onChange={handleInputChange}
-                        className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <label className="block text-xs font-medium mb-1 text-gray-700">
-                        Department
-                      </label>
-                      <input
-                        type="text"
-                        name="department"
-                        value={formData.department}
-                        onChange={handleInputChange}
-                        className="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#035f64] focus:border-transparent"
-                      />
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex justify-end">
-                <button
-                  type="submit"
-                  className="bg-[#035f64] text-white rounded-md px-6 py-2 text-sm font-medium hover:bg-[#024a4e] transition-colors"
-                >
-                  Create User
-                </button>
-              </div>
-            </form>
-          </div>
-
-          {/* Manage Users Section */}
-          <div>
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-              <h2 className="text-xl font-bold">Manage Existing Users</h2>
-              <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <label className="block text-sm mb-1">Department</label>
                   <input
                     type="text"
-                    placeholder="Search users..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#035f64] focus:border-transparent"
+                    value={newUser.department}
+                    onChange={(e) =>
+                      setNewUser({ ...newUser, department: e.target.value })
+                    }
+                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
-                <div className="relative">
-                  <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <select
-                    value={filterType}
-                    onChange={(e) => setFilterType(e.target.value)}
-                    className="pl-10 pr-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#035f64] focus:border-transparent appearance-none"
-                  >
-                    <option value="all">All Types</option>
-                    <option value="student">Students</option>
-                    <option value="advisor">Advisors</option>
-                    <option value="admin">Administrators</option>
-                  </select>
+                <div>
+                  <label className="block text-sm mb-1">Password</label>
+                  <input
+                    type="password"
+                    value={newUser.password}
+                    onChange={(e) =>
+                      setNewUser({ ...newUser, password: e.target.value })
+                    }
+                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Leave empty for default password"
+                  />
                 </div>
-              </div>
+                <div className="flex gap-2 items-end">
+                  <button
+                    type="submit"
+                    disabled={creatingUser}
+                    className="bg-[#035f64] text-white px-4 py-2 rounded-lg hover:bg-[#024a4e] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {creatingUser ? "Creating..." : "Create User"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowCreateForm(false)}
+                    className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
             </div>
+          )}
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white rounded-lg border">
-                <thead className="bg-gray-50">
+          {/* Users Table */}
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white rounded-lg">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
+                    Name
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
+                    Student ID
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
+                    Email
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
+                    Role
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
+                    Department
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
+                    Created
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs text-gray-500 uppercase">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {loading ? (
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      User
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Email
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Type
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Status
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Created
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Actions
-                    </th>
+                    <td colSpan="7" className="px-6 py-4 text-center">
+                      Loading...
+                    </td>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {filteredUsers.map((user) => (
-                    <tr key={user.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">
-                          {user.name}
-                        </div>
+                ) : users.length === 0 ? (
+                  <tr>
+                    <td colSpan="7" className="px-6 py-4 text-center">
+                      No users found
+                    </td>
+                  </tr>
+                ) : (
+                  users.map((user) => (
+                    <tr key={user.id} className="border-b">
+                      <td className="px-6 py-4">
+                        {user.name || user.displayName}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-500">
-                          {user.email}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4">{user.studentId}</td>
+                      <td className="px-6 py-4">{user.email}</td>
+                      <td className="px-6 py-4">
                         <span
-                          className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getTypeColor(
-                            user.type
-                          )}`}
+                          className={`px-2 py-1 rounded text-xs ${
+                            user.role === "admin"
+                              ? "bg-red-100 text-red-800"
+                              : user.role === "advisor"
+                              ? "bg-blue-100 text-blue-800"
+                              : "bg-green-100 text-green-800"
+                          }`}
                         >
-                          {user.type.charAt(0).toUpperCase() +
-                            user.type.slice(1)}
+                          {user.role}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span
-                          className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(
-                            user.status
-                          )}`}
-                        >
-                          {user.status.charAt(0).toUpperCase() +
-                            user.status.slice(1)}
-                        </span>
+                      <td className="px-6 py-4">{user.department || "-"}</td>
+                      <td className="px-6 py-4">
+                        {user.createdAt
+                          ? new Date(
+                              user.createdAt.toDate()
+                            ).toLocaleDateString()
+                          : "-"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {user.createdAt}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <div className="flex gap-2">
-                          <button className="text-blue-600 hover:text-blue-900 transition-colors">
-                            <Pencil size={16} />
+                      <td className="px-6 py-4">
+                        <div className="flex flex-row gap-2">
+                          <button className="text-blue-600 flex items-center hover:text-[#035f64] transition-colors">
+                            <Pencil size={18} />
                           </button>
                           <button
-                            onClick={() => deleteUser(user.id)}
-                            className="text-red-600 hover:text-red-900 transition-colors"
+                            onClick={() => handleDeleteUser(user.id)}
+                            className="text-red-600 flex items-center hover:text-red-700 transition-colors"
                           >
-                            <Trash2 size={16} />
+                            <Trash2 size={18} />
                           </button>
                         </div>
                       </td>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {filteredUsers.length === 0 && (
-              <div className="text-center py-8 text-gray-500">
-                No users found matching your criteria.
-              </div>
-            )}
+                  ))
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
