@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Square, LockKeyhole, GraduationCap, Search, Mail } from "lucide-react";
 import { useAuth } from "../../contexts/AuthContext";
@@ -8,10 +8,40 @@ function Authentication() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const { login, userRole, error: authError } = useAuth();
+  const { login, userRole, currentUser, error: authError } = useAuth();
   const navigate = useNavigate();
 
   console.log("Authentication component rendered");
+
+  // Watch for userRole changes and navigate accordingly
+  useEffect(() => {
+    if (userRole && currentUser) {
+      console.log("🔍 Authentication: userRole changed to:", userRole);
+      console.log("🔍 Authentication: Navigating based on role:", userRole);
+
+      setTimeout(() => {
+        switch (userRole) {
+          case "admin":
+            console.log("🔍 Authentication: Redirecting to /admin");
+            navigate("/admin");
+            break;
+          case "advisor":
+            console.log("🔍 Authentication: Redirecting to /advisor");
+            navigate("/advisor");
+            break;
+          case "student":
+            console.log("🔍 Authentication: Redirecting to /dashboard");
+            navigate("/dashboard");
+            break;
+          default:
+            console.log(
+              "🔍 Authentication: Unknown role, redirecting to /dashboard (default)"
+            );
+            navigate("/dashboard");
+        }
+      }, 1000);
+    }
+  }, [userRole, currentUser, navigate]);
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -38,27 +68,7 @@ function Authentication() {
 
       console.log("Login successful, userRole:", userRole);
 
-      // Redirect based on user role
-      setTimeout(() => {
-        console.log("Redirecting based on role:", userRole);
-        switch (userRole) {
-          case "admin":
-            console.log("Redirecting to /admin");
-            navigate("/admin");
-            break;
-          case "advisor":
-            console.log("Redirecting to /advisor");
-            navigate("/advisor");
-            break;
-          case "student":
-            console.log("Redirecting to /dashboard");
-            navigate("/dashboard");
-            break;
-          default:
-            console.log("Redirecting to /dashboard (default)");
-            navigate("/dashboard");
-        }
-      }, 500);
+      // Remove the old setTimeout since we're using useEffect now
     } catch (error) {
       console.error("Login error:", error);
       setMessage("Login failed: " + error.message);
@@ -70,36 +80,38 @@ function Authentication() {
   // Show error if there's an auth error
   if (authError) {
     return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        minHeight: '100vh',
-        backgroundColor: '#F9FAFB'
-      }}>
-        <div style={{
-          backgroundColor: 'white',
-          padding: '40px',
-          borderRadius: '16px',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
-          textAlign: 'center',
-          maxWidth: '400px'
-        }}>
-          <h1 style={{ color: '#dc2626', marginBottom: '20px' }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+          backgroundColor: "#F9FAFB",
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "white",
+            padding: "40px",
+            borderRadius: "16px",
+            boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+            textAlign: "center",
+            maxWidth: "400px",
+          }}
+        >
+          <h1 style={{ color: "#dc2626", marginBottom: "20px" }}>
             Authentication Error
           </h1>
-          <p style={{ color: '#666', marginBottom: '20px' }}>
-            {authError}
-          </p>
+          <p style={{ color: "#666", marginBottom: "20px" }}>{authError}</p>
           <button
             onClick={() => window.location.reload()}
             style={{
-              padding: '10px 20px',
-              backgroundColor: '#035f64',
-              color: 'white',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer'
+              padding: "10px 20px",
+              backgroundColor: "#035f64",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
             }}
           >
             Reload Page

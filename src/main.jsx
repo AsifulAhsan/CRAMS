@@ -5,16 +5,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import Authentication from "./components/Auth/Authentication";
 import ProtectedRoute from "./components/Auth/ProtectedRoute";
-import CourseManage from "./components/CourseManage/CourseManage.jsx";
+import App from "./App.jsx";
 import StudentDashboard from "./components/StudentDashboard/StudentDashboard.jsx";
 import AdminPage from "./components/AdminPage/AdminPage.jsx";
-import UserManage from "./components/AdminPage/UserManage.jsx";
-import AdvisorPanel from "./components/Advisor/AdvisorPanel";
-import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
-import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
-import NotFoundPage from "./components/NotFoundPage.jsx";
-import ErrorBoundary from "./components/ErrorBoundary.jsx";
+import AdvisorPanel from "./components/Advisor/AdvisorPanel.jsx";
 
+console.log("🚀 main.jsx: Starting with basic routes...");
+
+// Create router with basic routes
+console.log("🔧 Creating router...");
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,23 +23,16 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <ProtectedRoute>
-        <StudentDashboard />
+        <App />
       </ProtectedRoute>
     ),
+    children: [{ path: "/dashboard", element: <StudentDashboard /> }],
   },
   {
     path: "/admin",
     element: (
       <ProtectedRoute requiredRole="admin">
         <AdminPage />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/admin/users",
-    element: (
-      <ProtectedRoute requiredRole="admin">
-        <UserManage />
       </ProtectedRoute>
     ),
   },
@@ -53,13 +45,31 @@ const router = createBrowserRouter([
     ),
   },
 ]);
+console.log("✅ Router created successfully");
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <ErrorBoundary>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </ErrorBoundary>
-  </StrictMode>
-);
+// Add error handling for root element
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  console.error("❌ Root element not found!");
+  document.body.innerHTML =
+    '<div style="color: red; padding: 20px;">Error: Root element not found!</div>';
+} else {
+  console.log("✅ Root element found");
+
+  try {
+    const root = createRoot(rootElement);
+    console.log("✅ React root created");
+
+    root.render(
+      <StrictMode>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </StrictMode>
+    );
+    console.log("✅ React app rendered");
+  } catch (error) {
+    console.error("❌ React rendering failed:", error);
+    rootElement.innerHTML = `<div style="color: red; padding: 20px;">React Error: ${error.message}</div>`;
+  }
+}

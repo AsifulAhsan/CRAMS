@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 
 function StudentDashboard() {
+  console.log("StudentDashboard component rendered");
+
   return (
     <>
       <HeroSec />

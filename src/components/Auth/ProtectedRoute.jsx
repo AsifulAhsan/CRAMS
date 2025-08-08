@@ -5,6 +5,15 @@ import { useAuth } from "../../contexts/AuthContext";
 export default function ProtectedRoute({ children, requiredRole = null }) {
   const { currentUser, userRole, loading } = useAuth();
 
+  console.log(
+    "ProtectedRoute: currentUser:",
+    !!currentUser,
+    "userRole:",
+    userRole,
+    "requiredRole:",
+    requiredRole
+  );
+
   // Show loading while authentication state is being determined
   if (loading) {
     return (
@@ -23,41 +32,32 @@ export default function ProtectedRoute({ children, requiredRole = null }) {
     return <Navigate to="/" replace />;
   }
 
-  // If no specific role is required, redirect based on user's role
-  if (!requiredRole) {
-    console.log("No required role specified, checking user role:", userRole);
-    switch (userRole) {
-      case "admin":
-        console.log("User is admin, redirecting to /admin");
-        return <Navigate to="/admin" replace />;
-      case "advisor":
-        console.log("User is advisor, redirecting to /advisor");
-        return <Navigate to="/advisor" replace />;
-      case "student":
-        console.log("User is student, redirecting to /dashboard");
-        return <Navigate to="/dashboard" replace />;
-      default:
-        console.log("Unknown role, redirecting to /dashboard");
-        return <Navigate to="/dashboard" replace />;
-    }
-  }
-
   // If a specific role is required, check if user has that role
-  if (userRole !== requiredRole) {
-    console.log(`User role (${userRole}) doesn't match required role (${requiredRole})`);
-    // Redirect based on user's actual role
-    switch (userRole) {
-      case "admin":
-        return <Navigate to="/admin" replace />;
-      case "advisor":
-        return <Navigate to="/advisor" replace />;
-      case "student":
-        return <Navigate to="/dashboard" replace />;
-      default:
-        return <Navigate to="/dashboard" replace />;
+  if (requiredRole) {
+    console.log(
+      `Checking if user role (${userRole}) matches required role (${requiredRole})`
+    );
+    if (userRole !== requiredRole) {
+      console.log(
+        `User role (${userRole}) doesn't match required role (${requiredRole}), redirecting based on actual role`
+      );
+      // Redirect based on user's actual role
+      switch (userRole) {
+        case "admin":
+          return <Navigate to="/admin" replace />;
+        case "advisor":
+          return <Navigate to="/advisor" replace />;
+        case "student":
+          return <Navigate to="/dashboard" replace />;
+        default:
+          return <Navigate to="/dashboard" replace />;
+      }
     }
+    console.log(`User has required role (${requiredRole}), allowing access`);
+    return children;
   }
 
-  console.log(`User has required role (${requiredRole}), allowing access`);
+  // If no specific role is required (like for /dashboard), just allow access
+  console.log("No required role specified, allowing access");
   return children;
 }
