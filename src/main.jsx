@@ -4,8 +4,8 @@ import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import Authentication from "./components/Auth/Authentication";
 import ProtectedRoute from "./components/Auth/ProtectedRoute";
-import Login from "./components/Auth/Login";
 import CourseManage from "./components/CourseManage/CourseManage.jsx";
 import StudentDashboard from "./components/StudentDashboard/StudentDashboard.jsx";
 import AdminPage from "./components/AdminPage/AdminPage.jsx";
@@ -18,7 +18,7 @@ import NotFoundPage from "./components/NotFoundPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <Login />,
+    element: <Authentication />,
   },
   {
     path: "/",
