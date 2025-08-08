@@ -41,7 +41,7 @@ function StudentDashboard() {
           <div className="flex gap-6 items-start mr-90">
             <CircleUser size={34} />
             <p className="text-xl font-medium">
-              Dr. Salah Ahmed <br />
+              Prof. Salah Uddin <br />
               <p className="text-sm">Computer Science Department</p>
               <p className="text-sm">salah.ahmed@iiuc.ac.bd</p>
             </p>
