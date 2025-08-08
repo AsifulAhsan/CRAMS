@@ -9,6 +9,9 @@ import App from "./App.jsx";
 import StudentDashboard from "./components/StudentDashboard/StudentDashboard.jsx";
 import AdminPage from "./components/AdminPage/AdminPage.jsx";
 import AdvisorPanel from "./components/Advisor/AdvisorPanel.jsx";
+import CourseManage from "./components/CourseManage/CourseManage.jsx";
+import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
+import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
 
 console.log("🚀 main.jsx: Starting with basic routes...");
 
@@ -26,7 +29,12 @@ const router = createBrowserRouter([
         <App />
       </ProtectedRoute>
     ),
-    children: [{ path: "/dashboard", element: <StudentDashboard /> }],
+    children: [
+      { path: "/dashboard", element: <StudentDashboard /> },
+      { path: "/dashboard/courses", element: <CourseManage /> },
+      { path: "/dashboard/academic-history", element: <AcadHistory /> },
+      { path: "/dashboard/advisor-notes", element: <AdvisorNotes /> },
+    ],
   },
   {
     path: "/admin",
