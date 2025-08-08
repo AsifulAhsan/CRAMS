@@ -61,7 +61,7 @@ function CourseManage() {
         <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
           <div className="flex justify-between">
             <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
+            CS201{" "}
               <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
                 Completed
               </button>
@@ -71,10 +71,10 @@ function CourseManage() {
             </button>
           </div>
 
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
+          <p className="font-sans font-semibold">Data Structures</p>
           <div className="flex gap-4 text-gray-600">
             <User />
-            <p>Prof. Ahmed Ullah</p>
+            <p>Dr. Ahmed Hassan</p>
             <div className="flex ml-50 gap-2">
               <Clock10 />
               <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
@@ -91,7 +91,7 @@ function CourseManage() {
         <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
           <div className="flex justify-between">
             <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
+            CS301{" "}
               <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
                 Completed
               </button>
@@ -101,10 +101,10 @@ function CourseManage() {
             </button>
           </div>
 
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
+          <p className="font-sans font-semibold">Database Systems</p>
           <div className="flex gap-4 text-gray-600">
             <User />
-            <p>Prof. Ahmed Ullah</p>
+            <p>Dr. Mohammad Rahman</p>
             <div className="flex ml-50 gap-2">
               <Clock10 />
               <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
@@ -121,7 +121,7 @@ function CourseManage() {
         <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
           <div className="flex justify-between">
             <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
+              CS401{" "}
               <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
                 Completed
               </button>
@@ -131,10 +131,10 @@ function CourseManage() {
             </button>
           </div>
 
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
+          <p className="font-sans font-semibold">Software Engineering</p>
           <div className="flex gap-4 text-gray-600">
             <User />
-            <p>Prof. Ahmed Ullah</p>
+            <p>Prof. Fatima Khan</p>
             <div className="flex ml-50 gap-2">
               <Clock10 />
               <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
@@ -151,7 +151,7 @@ function CourseManage() {
         <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
           <div className="flex justify-between">
             <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
+              CS501{" "}
               <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
                 Completed
               </button>
@@ -161,10 +161,10 @@ function CourseManage() {
             </button>
           </div>
 
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
+          <p className="font-sans font-semibold">Machine Learning</p>
           <div className="flex gap-4 text-gray-600">
             <User />
-            <p>Prof. Ahmed Ullah</p>
+            <p>Dr. Rashida Begum</p>
             <div className="flex ml-50 gap-2">
               <Clock10 />
               <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
@@ -181,7 +181,7 @@ function CourseManage() {
         <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
           <div className="flex justify-between">
             <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
+              CS601{" "}
               <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
                 Completed
               </button>
@@ -191,10 +191,10 @@ function CourseManage() {
             </button>
           </div>
 
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
+          <p className="font-sans font-semibold">Computer Networks</p>
           <div className="flex gap-4 text-gray-600">
             <User />
-            <p>Prof. Ahmed Ullah</p>
+            <p>Prof. Fatima Khan</p>
             <div className="flex ml-50 gap-2">
               <Clock10 />
               <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
@@ -207,127 +207,7 @@ function CourseManage() {
             <p>Credits: 3</p>
           </div>
         </div>
-        {/*Course List Tile*/}
-        <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
-          <div className="flex justify-between">
-            <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
-              <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
-                Completed
-              </button>
-            </h1>
-            <button className="border border-gray-300 px-4 rounded-sm font-semibold cursor-pointer hover:bg-[#035f64] hover:text-white bg-emerald-700 text-white">
-              View Details
-            </button>
-          </div>
-
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
-          <div className="flex gap-4 text-gray-600">
-            <User />
-            <p>Prof. Ahmed Ullah</p>
-            <div className="flex ml-50 gap-2">
-              <Clock10 />
-              <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
-              <MapPin />
-              <p>Room 201, CS Building</p>
-            </div>
-          </div>
-          <div className="flex gap-8 text-gray-600">
-            <p>Semester: Spring 2024</p>
-            <p>Credits: 3</p>
-          </div>
-        </div>
-        {/*Course List Tile*/}
-        <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
-          <div className="flex justify-between">
-            <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
-              <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
-                Completed
-              </button>
-            </h1>
-            <button className="border border-gray-300 px-4 rounded-sm font-semibold cursor-pointer hover:bg-[#035f64] hover:text-white bg-emerald-700 text-white">
-              View Details
-            </button>
-          </div>
-
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
-          <div className="flex gap-4 text-gray-600">
-            <User />
-            <p>Prof. Ahmed Ullah</p>
-            <div className="flex ml-50 gap-2">
-              <Clock10 />
-              <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
-              <MapPin />
-              <p>Room 201, CS Building</p>
-            </div>
-          </div>
-          <div className="flex gap-8 text-gray-600">
-            <p>Semester: Spring 2024</p>
-            <p>Credits: 3</p>
-          </div>
-        </div>
-        {/*Course List Tile*/}
-        <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
-          <div className="flex justify-between">
-            <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
-              <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
-                Completed
-              </button>
-            </h1>
-            <button className="border border-gray-300 px-4 rounded-sm font-semibold cursor-pointer hover:bg-[#035f64] hover:text-white bg-emerald-700 text-white">
-              View Details
-            </button>
-          </div>
-
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
-          <div className="flex gap-4 text-gray-600">
-            <User />
-            <p>Prof. Ahmed Ullah</p>
-            <div className="flex ml-50 gap-2">
-              <Clock10 />
-              <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
-              <MapPin />
-              <p>Room 201, CS Building</p>
-            </div>
-          </div>
-          <div className="flex gap-8 text-gray-600">
-            <p>Semester: Spring 2024</p>
-            <p>Credits: 3</p>
-          </div>
-        </div>
-        {/*Course List Tile*/}
-        <div className="flex flex-col gap-2 border border-gray-300 bg-white rounded-lg mt-4 p-8 justify-start">
-          <div className="flex justify-between">
-            <h1 className="flex items-center gap-4 justify-center text-xl font-medium">
-              CS101{" "}
-              <button className="bg-emerald-400 text-white text-sm px-3 text-center items-center">
-                Completed
-              </button>
-            </h1>
-            <button className="border border-gray-300 px-4 rounded-sm font-semibold cursor-pointer hover:bg-[#035f64] hover:text-white bg-emerald-700 text-white">
-              View Details
-            </button>
-          </div>
-
-          <p className="font-sans font-semibold">Programming Fundamentals</p>
-          <div className="flex gap-4 text-gray-600">
-            <User />
-            <p>Prof. Ahmed Ullah</p>
-            <div className="flex ml-50 gap-2">
-              <Clock10 />
-              <p className="mr-30">Mon, Wed, Fri 9:00-10:00 AM</p>
-              <MapPin />
-              <p>Room 201, CS Building</p>
-            </div>
-          </div>
-          <div className="flex gap-8 text-gray-600">
-            <p>Semester: Spring 2024</p>
-            <p>Credits: 3</p>
-          </div>
-        </div>
-        {/*Course List Tile*/}
+         {/*Course List Tile*/}
       </div>
     </div>
   );
