@@ -1,94 +1,10 @@
 [
   {
     "courseId": 1,
-    "courseCode": "HI150",
-    "title": "Management 2",
-    "instructor": "Engr. Islam",
+    "courseCode": "CSE-1121",
+    "title": "Computer Programming I",
+    "instructor": "Dr. Mohammad Aman Ullah",
     "credits": 3,
-    "seats": {
-      "available": 15,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 2,
-    "courseCode": "HI372",
-    "title": "Machine Learning 2",
-    "instructor": "Prof. Chowdhury",
-    "credits": 4,
-    "seats": {
-      "available": 14,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 3,
-    "courseCode": "HI487",
-    "title": "Management 1",
-    "instructor": "Mrs. Sarkar",
-    "credits": 2,
-    "seats": {
-      "available": 13,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 4,
-    "courseCode": "BI408",
-    "title": "Calculus 2",
-    "instructor": "Prof. Ahmed",
-    "credits": 2,
-    "seats": {
-      "available": 28,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 5,
-    "courseCode": "HI430",
-    "title": "Chemistry 2",
-    "instructor": "Dr. Chowdhury",
-    "credits": 4,
-    "seats": {
-      "available": 12,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 6,
-    "courseCode": "PH244",
-    "title": "Statistics 1",
-    "instructor": "Engr. Aqib",
-    "credits": 3,
-    "seats": {
-      "available": 21,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 7,
-    "courseCode": "EC447",
-    "title": "Machine Learning 3",
-    "instructor": "Md. Ahmed",
-    "credits": 3,
-    "seats": {
-      "available": 14,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 8,
-    "courseCode": "CH309",
-    "title": "Database Systems 1",
-    "instructor": "Prof. Ahmed",
-    "credits": 2,
     "seats": {
       "available": 29,
       "total": 30
@@ -96,107 +12,35 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 9,
-    "courseCode": "PH493",
-    "title": "Microeconomics 2",
-    "instructor": "Md. Haque",
-    "credits": 4,
+    "courseId": 2,
+    "courseCode": "CSE-1122",
+    "title": "Computer Programming I Lab",
+    "instructor": "Md. Mahiuddin",
+    "credits": 1.5,
     "seats": {
-      "available": 14,
+      "available": 28,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
-    "courseId": 10,
-    "courseCode": "HI353",
-    "title": "History Teaching 3",
-    "instructor": "Engr. Chowdhury",
-    "credits": 4,
-    "seats": {
-      "available": 18,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 11,
-    "courseCode": "CH205",
-    "title": "Operating Systems 2",
-    "instructor": "Md. Sarkar",
-    "credits": 2,
-    "seats": {
-      "available": 23,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 12,
-    "courseCode": "CS143",
-    "title": "Composition 1",
-    "instructor": "Dr. Khan",
+    "courseId": 3,
+    "courseCode": "EEE-1121",
+    "title": "Basic Electrical Engineering",
+    "instructor": "Prof. Dr. Md. Monirul Islam",
     "credits": 3,
     "seats": {
-      "available": 20,
+      "available": 27,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
-    "courseId": 13,
-    "courseCode": "CS478",
-    "title": "Management 1",
-    "instructor": "Prof. Begum",
-    "credits": 3,
-    "seats": {
-      "available": 24,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 14,
-    "courseCode": "CS208",
-    "title": "Software Engineering 1",
-    "instructor": "Prof. Hasan",
-    "credits": 2,
-    "seats": {
-      "available": 14,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 15,
-    "courseCode": "CS151",
-    "title": "History Teaching 3",
-    "instructor": "Mrs. Rahman",
-    "credits": 4,
-    "seats": {
-      "available": 24,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 16,
-    "courseCode": "CS238",
-    "title": "Composition 1",
-    "instructor": "Dr. Haque",
-    "credits": 3,
-    "seats": {
-      "available": 13,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 17,
-    "courseCode": "CH158",
-    "title": "Data Structures 2",
-    "instructor": "Md. Hasan",
-    "credits": 3,
+    "courseId": 4,
+    "courseCode": "EEE-1122",
+    "title": "Basic Electrical Engineering Lab",
+    "instructor": "Prof. Mohammed Shamsul Alam",
+    "credits": 1.5,
     "seats": {
       "available": 26,
       "total": 30
@@ -204,47 +48,11 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 18,
-    "courseCode": "CS138",
-    "title": "Management 2",
-    "instructor": "Dr. Hasan",
+    "courseId": 5,
+    "courseCode": "MATH-1107",
+    "title": "Mathematics I (Differential and Integral Calculus)",
+    "instructor": "Prof. Dr. Abu Naser Md. Rezaul Karim",
     "credits": 3,
-    "seats": {
-      "available": 13,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 19,
-    "courseCode": "PH291",
-    "title": "Macroeconomics 3",
-    "instructor": "Md. Chowdhury",
-    "credits": 2,
-    "seats": {
-      "available": 24,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 20,
-    "courseCode": "EC306",
-    "title": "Machine Learning 2",
-    "instructor": "Md. Rahman",
-    "credits": 2,
-    "seats": {
-      "available": 21,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 21,
-    "courseCode": "CS381",
-    "title": "Database Systems 2",
-    "instructor": "Md. Hasan",
-    "credits": 4,
     "seats": {
       "available": 25,
       "total": 30
@@ -252,10 +60,22 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 22,
-    "courseCode": "EN230",
-    "title": "Calculus 3",
-    "instructor": "Mrs. Islam",
+    "courseId": 6,
+    "courseCode": "PHY-1101",
+    "title": "Physics I (Mechanics, Waves, Heat and Thermodynamics)",
+    "instructor": "Mahadi Hassan",
+    "credits": 3,
+    "seats": {
+      "available": 24,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 7,
+    "courseCode": "UREL-1106",
+    "title": "Advanced English",
+    "instructor": "Tanveer Ahsan",
     "credits": 2,
     "seats": {
       "available": 23,
@@ -264,23 +84,11 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 23,
-    "courseCode": "EC486",
-    "title": "Management 1",
-    "instructor": "Engr. Islam",
-    "credits": 4,
-    "seats": {
-      "available": 15,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 24,
-    "courseCode": "MA327",
-    "title": "Microeconomics 2",
-    "instructor": "Md. Rahman",
-    "credits": 2,
+    "courseId": 8,
+    "courseCode": "UREM-1101",
+    "title": "Text of Ethics and Morality",
+    "instructor": "Dr. Touhidul Alam",
+    "credits": 1,
     "seats": {
       "available": 22,
       "total": 30
@@ -288,22 +96,118 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 25,
-    "courseCode": "CH336",
-    "title": "Calculus 1",
-    "instructor": "Mrs. Aqib",
+    "courseId": 9,
+    "courseCode": "CSE-1221",
+    "title": "Computer Programming II",
+    "instructor": "Dr. Muhammad Moazzam Hossen",
     "credits": 3,
     "seats": {
-      "available": 23,
+      "available": 21,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
-    "courseId": 26,
-    "courseCode": "CS415",
-    "title": "Algorithms 1",
-    "instructor": "Md. Begum",
+    "courseId": 10,
+    "courseCode": "CSE-1222",
+    "title": "Computer Programming II Lab",
+    "instructor": "Dr. Mohammad Manjur Alam",
+    "credits": 1.5,
+    "seats": {
+      "available": 20,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 11,
+    "courseCode": "CSE-1223",
+    "title": "Discrete Mathematics",
+    "instructor": "Md. Mahiuddin",
+    "credits": 3,
+    "seats": {
+      "available": 19,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 12,
+    "courseCode": "CSE-1230",
+    "title": "Competitive Programming I",
+    "instructor": "Zinia Sultana Mukti",
+    "credits": 1,
+    "seats": {
+      "available": 18,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 13,
+    "courseCode": "EEE-1221",
+    "title": "Electronics",
+    "instructor": "Md. Khaliluzzaman",
+    "credits": 3,
+    "seats": {
+      "available": 17,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 14,
+    "courseCode": "EEE-1222",
+    "title": "Electronics Lab",
+    "instructor": "Md. Rashedul Islam",
+    "credits": 1.5,
+    "seats": {
+      "available": 16,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 15,
+    "courseCode": "MATH-1207",
+    "title": "Mathematics II (Geometry and Differential Equations)",
+    "instructor": "Mohammed Safiullah",
+    "credits": 3,
+    "seats": {
+      "available": 15,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 16,
+    "courseCode": "PHY-1201",
+    "title": "Physics II (Electromagnetism, Optics and Modern Physics)",
+    "instructor": "Abdullahil Kafi",
+    "credits": 3,
+    "seats": {
+      "available": 14,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 17,
+    "courseCode": "PHY-1204",
+    "title": "Physics II Lab (Electromagnetism, Optics and Modern Physics)",
+    "instructor": "Dr. Siddique Ahmed",
+    "credits": 1.5,
+    "seats": {
+      "available": 13,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 18,
+    "courseCode": "URED-1201",
+    "title": "Basic Principles of Islam ('Aqidah + 'Ibadah))",
+    "instructor": "Subrina Akter",
     "credits": 2,
     "seats": {
       "available": 12,
@@ -312,10 +216,94 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 27,
-    "courseCode": "CH267",
-    "title": "Artificial Intelligence 3",
-    "instructor": "Engr. Hasan",
+    "courseId": 19,
+    "courseCode": "CHEM-2301",
+    "title": "Chemistry",
+    "instructor": "Saifur Rahman",
+    "credits": 3,
+    "seats": {
+      "available": 11,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 20,
+    "courseCode": "CHEM-2304",
+    "title": "Chemistry Lab",
+    "instructor": "Shayhan Ameen Chowdhury",
+    "credits": 1.5,
+    "seats": {
+      "available": 30,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 21,
+    "courseCode": "CSE-2321",
+    "title": "Data Structures",
+    "instructor": "ABM Yasir Arafat",
+    "credits": 3,
+    "seats": {
+      "available": 29,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 22,
+    "courseCode": "CSE-2322",
+    "title": "Data Structures Lab",
+    "instructor": "Mohammod Sazid Zaman Khan",
+    "credits": 1,
+    "seats": {
+      "available": 28,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 23,
+    "courseCode": "CSE-2323",
+    "title": "Digital Logic Design",
+    "instructor": "Saiful Islam",
+    "credits": 3,
+    "seats": {
+      "available": 27,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 24,
+    "courseCode": "CSE-2324",
+    "title": "Digital Logic Design Lab",
+    "instructor": "Sanjida Sharmin",
+    "credits": 1.5,
+    "seats": {
+      "available": 26,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 25,
+    "courseCode": "CSE-2340",
+    "title": "Software Development I",
+    "instructor": "Israt Binteh Habib",
+    "credits": 2,
+    "seats": {
+      "available": 25,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 26,
+    "courseCode": "MATH-2307",
+    "title": "Mathematics III (Matrices, Linear System of Equations and Vector Analysis)",
+    "instructor": "Farzana Tasnim",
     "credits": 3,
     "seats": {
       "available": 24,
@@ -324,35 +312,47 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 28,
-    "courseCode": "MA232",
-    "title": "Software Engineering 3",
-    "instructor": "Prof. Sarkar",
-    "credits": 3,
+    "courseId": 27,
+    "courseCode": "STAT-2311",
+    "title": "Probability and Statistics",
+    "instructor": "Muhammed Nazmul Arefin",
+    "credits": 2,
     "seats": {
-      "available": 13,
+      "available": 23,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 28,
+    "courseCode": "URED-2302",
+    "title": "Sciences of Quran and Hadith",
+    "instructor": "Jamil As-ad",
+    "credits": 1,
+    "seats": {
+      "available": 22,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
     "courseId": 29,
-    "courseCode": "BI491",
-    "title": "Data Structures 2",
-    "instructor": "Engr. Rahman",
-    "credits": 4,
+    "courseCode": "URED-2305",
+    "title": "Comparative Religion",
+    "instructor": "Nuren Nafisa",
+    "credits": 3,
     "seats": {
-      "available": 28,
+      "available": 21,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
     "courseId": 30,
-    "courseCode": "CH456",
-    "title": "Linear Algebra 1",
-    "instructor": "Mrs. Sarkar",
-    "credits": 2,
+    "courseCode": "CSE-2421",
+    "title": "Computer Algorithms",
+    "instructor": "Sahariar Reza",
+    "credits": 3,
     "seats": {
       "available": 20,
       "total": 30
@@ -361,58 +361,94 @@
   },
   {
     "courseId": 31,
-    "courseCode": "EN404",
-    "title": "Macroeconomics 1",
-    "instructor": "Mrs. Ahmed",
-    "credits": 3,
+    "courseCode": "CSE-2422",
+    "title": "Computer Algorithms Lab",
+    "instructor": "Md. Badiuzzaman Biplob",
+    "credits": 1,
     "seats": {
-      "available": 10,
+      "available": 19,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
     "courseId": 32,
-    "courseCode": "PS341",
-    "title": "Artificial Intelligence 3",
-    "instructor": "Mrs. Hasan",
-    "credits": 4,
+    "courseCode": "CSE-2423",
+    "title": "Database Management Systems",
+    "instructor": "Md. Monir Hossain",
+    "credits": 3,
     "seats": {
-      "available": 26,
+      "available": 18,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
     "courseId": 33,
-    "courseCode": "EC311",
-    "title": "Biology 1",
-    "instructor": "Prof. Ahmed",
-    "credits": 4,
+    "courseCode": "CSE-2424",
+    "title": "Database Management Systems Lab",
+    "instructor": "Md Aminul Islam",
+    "credits": 1.5,
     "seats": {
-      "available": 27,
+      "available": 17,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
     "courseId": 34,
-    "courseCode": "EC484",
-    "title": "History Teaching 3",
-    "instructor": "Prof. Sarkar",
-    "credits": 4,
+    "courseCode": "CSE-2425",
+    "title": "Theory of Computing",
+    "instructor": "Khandaker Tayef Shahriar",
+    "credits": 2,
     "seats": {
-      "available": 23,
+      "available": 16,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
     "courseId": 35,
-    "courseCode": "CS172",
-    "title": "Data Structures 1",
-    "instructor": "Md. Islam",
-    "credits": 4,
+    "courseCode": "CSE-2430",
+    "title": "Competitive Programming II",
+    "instructor": "Abdullah Al Mamun",
+    "credits": 1,
+    "seats": {
+      "available": 15,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 36,
+    "courseCode": "EEE-2421",
+    "title": "Electrical Drives and Instrumentation",
+    "instructor": "Nuren Nafisa",
+    "credits": 2,
+    "seats": {
+      "available": 14,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 37,
+    "courseCode": "EEE-2422",
+    "title": "Electrical Drives and Instrumentation Lab",
+    "instructor": "Sabrina Jahan Maisha",
+    "credits": 1,
+    "seats": {
+      "available": 13,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 38,
+    "courseCode": "GEBL-2401",
+    "title": "Bangla Language and Literature",
+    "instructor": "Siam Sharif Ami",
+    "credits": 2,
     "seats": {
       "available": 12,
       "total": 30
@@ -420,10 +456,94 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 36,
-    "courseCode": "HI499",
-    "title": "Operating Systems 2",
-    "instructor": "Prof. Khan",
+    "courseId": 39,
+    "courseCode": "MATH-2407",
+    "title": "Mathematics IV (Complex Variable, Fourier Analysis and Z-transform)",
+    "instructor": "Asmaul Hosna Sadika",
+    "credits": 3,
+    "seats": {
+      "available": 11,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 40,
+    "courseCode": "ME-2412",
+    "title": "Engineering Drawing Lab",
+    "instructor": "Muhammad Mubinur Rahman",
+    "credits": 1,
+    "seats": {
+      "available": 30,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 41,
+    "courseCode": "ACC-2401",
+    "title": "Financial and Managerial Accounting",
+    "instructor": "Rayhanuzzaman",
+    "credits": 2,
+    "seats": {
+      "available": 29,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 42,
+    "courseCode": "CSE-3521",
+    "title": "Computer Architecture",
+    "instructor": "Ayesha Julekha",
+    "credits": 3,
+    "seats": {
+      "available": 28,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 43,
+    "courseCode": "CSE-3523",
+    "title": "Microprocessors, Microcontrollers and Embedded Systems",
+    "instructor": "Mr. Muhammad Nazim Uddin",
+    "credits": 3,
+    "seats": {
+      "available": 27,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 44,
+    "courseCode": "CSE-3524",
+    "title": "Microprocessors, Microcontrollers and Embedded Systems Lab",
+    "instructor": "Nowshin Tabassum",
+    "credits": 1,
+    "seats": {
+      "available": 26,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 45,
+    "courseCode": "CSE-3525",
+    "title": "Data Communication",
+    "instructor": "Mujibur Rahman Maruf",
+    "credits": 3,
+    "seats": {
+      "available": 25,
+      "total": 30
+    },
+    "action": "Add to plan"
+  },
+  {
+    "courseId": 46,
+    "courseCode": "CSE-3527",
+    "title": "Compiler",
+    "instructor": "Mahir Shadid",
     "credits": 3,
     "seats": {
       "available": 24,
@@ -432,35 +552,11 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 37,
-    "courseCode": "CH342",
-    "title": "Physics 2",
-    "instructor": "Mrs. Aqib",
-    "credits": 2,
-    "seats": {
-      "available": 18,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 38,
-    "courseCode": "EC453",
-    "title": "Statistics 3",
-    "instructor": "Prof. Rahman",
-    "credits": 4,
-    "seats": {
-      "available": 15,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 39,
-    "courseCode": "MG177",
-    "title": "Artificial Intelligence 1",
-    "instructor": "Engr. Rahman",
-    "credits": 4,
+    "courseId": 47,
+    "courseCode": "CSE-3528",
+    "title": "Compiler Lab",
+    "instructor": "Fathema Tuj Johora",
+    "credits": 1,
     "seats": {
       "available": 23,
       "total": 30
@@ -468,119 +564,23 @@
     "action": "Add to plan"
   },
   {
-    "courseId": 40,
-    "courseCode": "EN326",
-    "title": "Microeconomics 1",
-    "instructor": "Engr. Islam",
-    "credits": 3,
-    "seats": {
-      "available": 16,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 41,
-    "courseCode": "PS423",
-    "title": "Calculus 3",
-    "instructor": "Engr. Khan",
-    "credits": 4,
-    "seats": {
-      "available": 21,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 42,
-    "courseCode": "EC272",
-    "title": "Management 3",
-    "instructor": "Dr. Sarkar",
-    "credits": 4,
-    "seats": {
-      "available": 30,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 43,
-    "courseCode": "HI476",
-    "title": "Algorithms 1",
-    "instructor": "Prof. Aqib",
-    "credits": 4,
-    "seats": {
-      "available": 11,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 44,
-    "courseCode": "HI324",
-    "title": "Chemistry 2",
-    "instructor": "Mrs. Ahmed",
-    "credits": 3,
-    "seats": {
-      "available": 15,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 45,
-    "courseCode": "CH146",
-    "title": "Machine Learning 2",
-    "instructor": "Md. Aqib",
-    "credits": 2,
-    "seats": {
-      "available": 11,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 46,
-    "courseCode": "MG330",
-    "title": "Programming 1",
-    "instructor": "Mrs. Haque",
-    "credits": 3,
-    "seats": {
-      "available": 29,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
-    "courseId": 47,
-    "courseCode": "HI104",
-    "title": "Biology 1",
-    "instructor": "Prof. Rahman",
-    "credits": 4,
-    "seats": {
-      "available": 29,
-      "total": 30
-    },
-    "action": "Add to plan"
-  },
-  {
     "courseId": 48,
-    "courseCode": "MA230",
-    "title": "Composition 2",
-    "instructor": "Engr. Chowdhury",
+    "courseCode": "CSE-3529",
+    "title": "Systems Analysis and Design",
+    "instructor": "Miskatul Jannat",
     "credits": 3,
     "seats": {
-      "available": 27,
+      "available": 22,
       "total": 30
     },
     "action": "Add to plan"
   },
   {
     "courseId": 49,
-    "courseCode": "EN189",
-    "title": "Machine Learning 3",
-    "instructor": "Mrs. Aqib",
-    "credits": 3,
+    "courseCode": "CSE-3532",
+    "title": "Tools and Technologies for Internet Programming",
+    "instructor": "Abdul Aziz",
+    "credits": 2,
     "seats": {
       "available": 21,
       "total": 30
@@ -589,12 +589,12 @@
   },
   {
     "courseId": 50,
-    "courseCode": "EC212",
-    "title": "Political Science 1",
-    "instructor": "Engr. Ahmed",
-    "credits": 2,
+    "courseCode": "URED-3503",
+    "title": "Political Thoughts and Social Behavior",
+    "instructor": "Md Nazmul Hasan",
+    "credits": 1,
     "seats": {
-      "available": 15,
+      "available": 20,
       "total": 30
     },
     "action": "Add to plan"
