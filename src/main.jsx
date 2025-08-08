@@ -10,6 +10,7 @@ import AdvisorPanel from "./components/Advisor/AdvisorPanel";
 import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
 import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
 import NotFoundPage from "./components/NotFoundPage.jsx";
+import Authentication from "./components/Auth/Authentication.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,16 @@ const router = createBrowserRouter([
   {
     path: "/advisor",
     element: <AdvisorPanel />,
+    // children: [
+    //   { path: "/", element: <StudentDashboard /> },
+    //   { path: "/course-manage", element: <CourseManage /> },
+    //   { path: "/admin", element: <AdminPage /> },
+    //   { path: "/advisor", element: <AdvisorPanel /> },
+    // ],
+  },
+  {
+    path: "/auth-page",
+    element: <Authentication />,
     // children: [
     //   { path: "/", element: <StudentDashboard /> },
     //   { path: "/course-manage", element: <CourseManage /> },
