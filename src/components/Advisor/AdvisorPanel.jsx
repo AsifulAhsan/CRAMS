@@ -150,7 +150,7 @@ export default function AdvisorPanel() {
               <button className="px-6 py-2 bg-white text-gray-600 border border-gray-300 rounded-lg font-semibold text-sm hover:bg-gray-50 transition">
                 Reject Plan
               </button>
-              <button className="px-6 py-2 bg-gray-600 text-white rounded-lg font-semibold text-sm hover:bg-gray-700 transition">
+              <button className="px-6 py-2 bg-[#035f64] text-white rounded-lg font-semibold text-sm hover:bg-[#024a4e] transition">
                 Approve Plan
               </button>
             </div>

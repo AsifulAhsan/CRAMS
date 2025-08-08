@@ -1,36 +1,24 @@
-import { Pencil, Trash2, Code, Bell, CircleUserRound } from "lucide-react";
+import { Pencil, Trash2, Bell, CircleUserRound } from "lucide-react";
 
 export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Admin Navbar */}
-      <div className="fixed w-full flex gap-4 justify-between pt-2 px-4 bg-white border-2 border-gray-200 z-10">
-        <div className="flex p-4 gap-2 items-center">
-          <Code color="green" size="32" />
-          <h1 className="text-2xl">IIUC Admin Panel</h1>
+      <div className="fixed w-full flex justify-between pt-2 px-4 bg-white shadow-md top-0 z-10">
+        <div className="flex p-4 gap-2">
+          <h1 className="text-3xl font-bold">IIUC Admin Panel</h1>
         </div>
-        <div className="flex gap-8 items-center">
-          <button className="text-gray-600 hover:text-gray-800 transition">
-            Dashboard
-          </button>
-          <button className="text-gray-600 hover:text-gray-800 transition">
-            Users
-          </button>
-          <button className="text-gray-600 hover:text-gray-800 transition">
-            Settings
-          </button>
-        </div>
-        <div className="flex gap-6 p-4 items-center">
-          <Bell className="w-6 h-6 text-gray-600 hover:text-gray-800 cursor-pointer" />
-          <CircleUserRound className="w-6 h-6 text-gray-600 hover:text-gray-800 cursor-pointer" />
+        <div className="flex gap-6 p-4">
+          <Bell className="w-6 h-6 text-gray-600 hover:text-[#035f64] cursor-pointer transition-colors" />
+          <CircleUserRound className="w-6 h-6 text-gray-600 hover:text-[#035f64] cursor-pointer transition-colors" />
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="pt-20 px-6 py-10">
+      <div className="pt-25 px-6 py-10">
         <div className="bg-white rounded-xl shadow-lg p-10 w-full max-w-7xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-1">Admin Panel</h1>
+            <h1 className="text-3xl font-bold mb-1">Admin Dashboard</h1>
             <p className="text-gray-500">
               Manage course offerings and advisor assignments for each semester.
             </p>
@@ -41,7 +29,7 @@ export default function AdminPage() {
               <form className="space-y-4">
                 <div>
                   <label className="block text-sm mb-1">Semester</label>
-                  <select className="w-full border rounded-lg px-3 py-2">
+                  <select className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     <option>1st Semester</option>
                     <option>2nd Semester</option>
                     <option>3rd Semester</option>
@@ -53,27 +41,27 @@ export default function AdminPage() {
                 </div>
                 <div>
                   <label className="block text-sm mb-1">Course Name</label>
-                  <input className="w-full border rounded-lg px-3 py-2" />
+                  <input className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                 </div>
                 <div>
                   <label className="block text-sm mb-1">Course Code</label>
-                  <input className="w-full border rounded-lg px-3 py-2" />
+                  <input className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                 </div>
                 <div>
                   <label className="block text-sm mb-1">Schedule</label>
-                  <input className="w-full border rounded-lg px-3 py-2" />
+                  <input className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                 </div>
                 <div>
                   <label className="block text-sm mb-1">Seat Limit</label>
                   <input
-                    className="w-full border rounded-lg px-3 py-2"
+                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     type="number"
                     min="1"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-gray-600 text-white rounded-lg py-2 text-sm hover:bg-gray-700 transition"
+                  className="w-full bg-[#035f64] text-white rounded-lg py-2 text-sm hover:bg-[#024a4e] transition"
                 >
                   Add Course
                 </button>
@@ -86,7 +74,7 @@ export default function AdminPage() {
               <div className="flex flex-col md:flex-row md:items-end gap-4 mb-8">
                 <div className="flex-1">
                   <label className="block text-sm mb-1">Semester</label>
-                  <select className="w-full border rounded-lg px-3 py-2">
+                  <select className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     <option>1st Semester</option>
                     <option>2nd Semester</option>
                     <option>3rd Semester</option>
@@ -98,7 +86,7 @@ export default function AdminPage() {
                 </div>
                 <div className="flex-1">
                   <label className="block text-sm mb-1">Advisor</label>
-                  <select className="w-full border rounded-lg px-3 py-2">
+                  <select className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     <option>Dr. Abdullah Al Mahfuz</option>
                     <option>Dr. Shariar Mohammad Aqib</option>
                     <option>Dr. Mohammad Hossain Bhai</option>
@@ -106,7 +94,7 @@ export default function AdminPage() {
                     <option>Dr. Mohammad Imran Abid</option>
                   </select>
                 </div>
-                <button className="bg-gray-600 text-white rounded-lg px-6 py-2 text-sm hover:bg-gray-700 transition md:mb-0 mb-2">
+                <button className="bg-[#035f64] text-white rounded-lg px-6 py-2 text-sm hover:bg-[#024a4e] transition md:mb-0 mb-2">
                   Assign Advisor
                 </button>
               </div>
@@ -139,10 +127,10 @@ export default function AdminPage() {
                         <td className="px-6 py-4">Md. Ali Khan</td>
                         <td className="px-6 py-4">
                           <div className="flex flex-row gap-2">
-                            <button className="text-blue-600 flex items-center">
+                            <button className="text-blue-600 flex items-center hover:text-[#035f64] transition-colors">
                               <Pencil size={18} />
                             </button>
-                            <button className="text-red-600 flex items-center">
+                            <button className="text-red-600 flex items-center hover:text-red-700 transition-colors">
                               <Trash2 size={18} />
                             </button>
                           </div>
@@ -154,10 +142,10 @@ export default function AdminPage() {
                         <td className="px-6 py-4">Rina Begum</td>
                         <td className="px-6 py-4">
                           <div className="flex flex-row gap-2">
-                            <button className="text-blue-600 flex items-center">
+                            <button className="text-blue-600 flex items-center hover:text-[#035f64] transition-colors">
                               <Pencil size={18} />
                             </button>
-                            <button className="text-red-600 flex items-center">
+                            <button className="text-red-600 flex items-center hover:text-red-700 transition-colors">
                               <Trash2 size={18} />
                             </button>
                           </div>
@@ -169,10 +157,10 @@ export default function AdminPage() {
                         <td className="px-6 py-4">Mohammad Rashedul Islam</td>
                         <td className="px-6 py-4">
                           <div className="flex flex-row gap-2">
-                            <button className="text-blue-600 flex items-center">
+                            <button className="text-blue-600 flex items-center hover:text-[#035f64] transition-colors">
                               <Pencil size={18} />
                             </button>
-                            <button className="text-red-600 flex items-center">
+                            <button className="text-red-600 flex items-center hover:text-red-700 transition-colors">
                               <Trash2 size={18} />
                             </button>
                           </div>
@@ -184,10 +172,10 @@ export default function AdminPage() {
                         <td className="px-6 py-4">Jamal Assad</td>
                         <td className="px-6 py-4">
                           <div className="flex flex-row gap-2">
-                            <button className="text-blue-600 flex items-center">
+                            <button className="text-blue-600 flex items-center hover:text-[#035f64] transition-colors">
                               <Pencil size={18} />
                             </button>
-                            <button className="text-red-600 flex items-center">
+                            <button className="text-red-600 flex items-center hover:text-red-700 transition-colors">
                               <Trash2 size={18} />
                             </button>
                           </div>
@@ -199,10 +187,10 @@ export default function AdminPage() {
                         <td className="px-6 py-4">Shariar Mohammad Aqib</td>
                         <td className="px-6 py-4">
                           <div className="flex flex-row gap-2">
-                            <button className="text-blue-600 flex items-center">
+                            <button className="text-blue-600 flex items-center hover:text-[#035f64] transition-colors">
                               <Pencil size={18} />
                             </button>
-                            <button className="text-red-600 flex items-center">
+                            <button className="text-red-600 flex items-center hover:text-red-700 transition-colors">
                               <Trash2 size={18} />
                             </button>
                           </div>
