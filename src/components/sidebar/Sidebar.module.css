@@ -6,8 +6,8 @@
 }
 .list:hover {
   cursor: pointer;
-  background-color: #035f64;
-  color: rgb(255, 255, 255);
+  color: #035f64;
+  background-color: white;
 }
 .active {
   background-color: #035f64 !important; /* Ensures active state overrides hover */

@@ -9,12 +9,14 @@ import AdminPage from "./components/AdminPage/AdminPage.jsx";
 import AdvisorPanel from "./components/Advisor/AdvisorPanel";
 import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
 import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
+import NotFoundPage from "./components/NotFoundPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      { path: "*", element: <NotFoundPage /> },
       { path: "/", element: <StudentDashboard /> },
       { path: "/course-manage", element: <CourseManage /> },
       { path: "/admin", element: <AdminPage /> },
