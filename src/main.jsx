@@ -14,10 +14,7 @@ import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
 import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
 import UserManage from "./components/AdminPage/UserManage.jsx";
 
-console.log("🚀 main.jsx: Starting with basic routes...");
-
 // Create router with basic routes
-console.log("🔧 Creating router...");
 const router = createBrowserRouter([
   {
     path: "/",
@@ -62,21 +59,15 @@ const router = createBrowserRouter([
     ),
   },
 ]);
-console.log("✅ Router created successfully");
 
 // Add error handling for root element
 const rootElement = document.getElementById("root");
 if (!rootElement) {
-  console.error("❌ Root element not found!");
   document.body.innerHTML =
     '<div style="color: red; padding: 20px;">Error: Root element not found!</div>';
 } else {
-  console.log("✅ Root element found");
-
   try {
     const root = createRoot(rootElement);
-    console.log("✅ React root created");
-
     root.render(
       <StrictMode>
         <AuthProvider>
@@ -84,9 +75,7 @@ if (!rootElement) {
         </AuthProvider>
       </StrictMode>
     );
-    console.log("✅ React app rendered");
   } catch (error) {
-    console.error("❌ React rendering failed:", error);
     rootElement.innerHTML = `<div style="color: red; padding: 20px;">React Error: ${error.message}</div>`;
   }
 }

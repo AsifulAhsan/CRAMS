@@ -17,9 +17,14 @@ function Authentication() {
   useEffect(() => {
     if (userRole && currentUser) {
       console.log("🔍 Authentication: userRole changed to:", userRole);
+      console.log("🔍 Authentication: currentUser:", currentUser.email);
       console.log("🔍 Authentication: Navigating based on role:", userRole);
 
       setTimeout(() => {
+        console.log(
+          "🔍 Authentication: Executing navigation for role:",
+          userRole
+        );
         switch (userRole) {
           case "admin":
             console.log("🔍 Authentication: Redirecting to /admin");
@@ -40,6 +45,10 @@ function Authentication() {
             navigate("/dashboard");
         }
       }, 1000);
+    } else {
+      console.log("🔍 Authentication: userRole or currentUser not ready yet");
+      console.log("🔍 Authentication: userRole:", userRole);
+      console.log("🔍 Authentication: currentUser:", currentUser);
     }
   }, [userRole, currentUser, navigate]);
 
