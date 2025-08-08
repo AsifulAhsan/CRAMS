@@ -6,7 +6,7 @@ export default function AdvisorHero() {
       </div>
       <div className="text-gray-500 text-base">
         ID: 1234567 &nbsp;|&nbsp; Major: Computer Science &nbsp;|&nbsp; Year:
-        Junior
+        5th
       </div>
     </div>
   );
