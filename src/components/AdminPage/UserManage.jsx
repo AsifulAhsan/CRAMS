@@ -8,7 +8,7 @@ import {
   Bell,
   CircleUserRound,
 } from "lucide-react";
-import { userAPI, authAPI } from "../../services/api";
+// import { userAPI, authAPI } from "../../services/api";
 
 export default function UserManage() {
   const [searchTerm, setSearchTerm] = useState("");
