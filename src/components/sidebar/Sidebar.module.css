@@ -10,6 +10,10 @@
   background-color: white;
 }
 .active {
-  background-color: #035f64 !important; /* Ensures active state overrides hover */
-  color: #ffffff !important;
+  transition: all;
+  transition-duration: 200ms;
+  background-color: #dde4e586 !important; /* Ensures active state overrides hover */
+  color: #035f64 !important;
+  border-left: 0.3rem solid;
+  border-color: #035f64;
 }
