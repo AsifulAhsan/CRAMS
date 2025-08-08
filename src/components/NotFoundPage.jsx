@@ -8,7 +8,7 @@ function NotFoundPage() {
           This Page Does Not Exist!
         </h1>
         <Link to={"/"}>
-          <button className="border-2 bg-black p-3 rounded-xl text-xl text-white font-bold cursor-pointer hover:text-emerald-100 border-transparent hover:bg-[#035f64]">
+          <button className="border-2 bg-white p-3 rounded-xl text-xl text-black font-bold cursor-pointer hover:text-white border-transparent hover:bg-[#035f64]">
             RETURN HOME
           </button>
         </Link>
