@@ -19,6 +19,7 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState(null);
+  const [error, setError] = useState(null);
 
   async function signup(email, password, userData) {
     try {
@@ -43,12 +44,15 @@ export function AuthProvider({ children }) {
 
       return userCredential;
     } catch (error) {
+      console.error("Signup error:", error);
       throw error;
     }
   }
 
   async function login(email, password) {
     try {
+      console.log("Attempting login with:", email);
+      
       // Enable network connection
       await enableNetwork(db);
 
@@ -57,6 +61,8 @@ export function AuthProvider({ children }) {
         email,
         password
       );
+
+      console.log("Login successful, fetching user role...");
 
       // Fetch user role from Firestore immediately
       try {
@@ -81,6 +87,7 @@ export function AuthProvider({ children }) {
 
       return userCredential;
     } catch (error) {
+      console.error("Login error:", error);
       throw error;
     }
   }
@@ -116,52 +123,84 @@ export function AuthProvider({ children }) {
 
       return userCredential;
     } catch (error) {
+      console.error("Create user error:", error);
       throw error;
     }
   }
 
   useEffect(() => {
+    console.log("AuthProvider: Setting up auth state listener...");
+    
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        setCurrentUser(user);
-        // Fetch user role from Firestore
-        try {
-          await enableNetwork(db);
-          const userDoc = await getDoc(doc(db, "users", user.uid));
-          if (userDoc.exists()) {
-            const role = userDoc.data().role;
-            setUserRole(role);
-            console.log("User role loaded:", role);
-          } else {
-            console.warn("User document not found in Firestore");
+      try {
+        console.log("Auth state changed:", user ? "User logged in" : "No user");
+        
+        if (user) {
+          setCurrentUser(user);
+          console.log("Fetching user role from Firestore...");
+          
+          // Fetch user role from Firestore
+          try {
+            await enableNetwork(db);
+            const userDoc = await getDoc(doc(db, "users", user.uid));
+            if (userDoc.exists()) {
+              const role = userDoc.data().role;
+              setUserRole(role);
+              console.log("User role loaded:", role);
+            } else {
+              console.warn("User document not found in Firestore");
+              setUserRole("student");
+            }
+          } catch (error) {
+            console.error("Error fetching user role:", error);
             setUserRole("student");
           }
-        } catch (error) {
-          console.error("Error fetching user role:", error);
-          setUserRole("student");
+        } else {
+          setCurrentUser(null);
+          setUserRole(null);
         }
-      } else {
-        setCurrentUser(null);
-        setUserRole(null);
+      } catch (error) {
+        console.error("Auth state change error:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     });
 
-    return unsubscribe;
+    // Add a timeout to prevent infinite loading
+    const timeout = setTimeout(() => {
+      console.log("AuthProvider: Loading timeout reached");
+      setLoading(false);
+    }, 5000);
+
+    return () => {
+      console.log("AuthProvider: Cleaning up...");
+      unsubscribe();
+      clearTimeout(timeout);
+    };
   }, []);
 
   const value = {
     currentUser,
     userRole,
+    loading,
+    error,
     signup,
     login,
     logout,
     createUserAccount,
   };
 
+  console.log("AuthProvider: Rendering with state:", { 
+    currentUser: !!currentUser, 
+    userRole, 
+    loading, 
+    error 
+  });
+
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }

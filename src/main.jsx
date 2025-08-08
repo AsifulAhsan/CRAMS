@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import Authentication from "./components/Auth/Authentication";
@@ -14,26 +13,20 @@ import AdvisorPanel from "./components/Advisor/AdvisorPanel";
 import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
 import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
 import NotFoundPage from "./components/NotFoundPage.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <Authentication />,
   },
   {
-    path: "/",
+    path: "/dashboard",
     element: (
       <ProtectedRoute>
-        <App />
+        <StudentDashboard />
       </ProtectedRoute>
     ),
-    children: [
-      { path: "*", element: <NotFoundPage /> },
-      { path: "/", element: <StudentDashboard /> },
-      { path: "/course-manage", element: <CourseManage /> },
-      { path: "/advisor-notes", element: <AdvisorNotes /> },
-      { path: "/acad-history", element: <AcadHistory /> },
-    ],
   },
   {
     path: "/admin",
@@ -63,8 +56,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ErrorBoundary>
   </StrictMode>
 );
