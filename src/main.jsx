@@ -14,6 +14,8 @@ import AcadHistory from "./components/AcadHistory/AcadHistory.jsx";
 import AdvisorNotes from "./components/AdvisorNotes/AdvisorNotes.jsx";
 import UserManage from "./components/AdminPage/UserManage.jsx";
 
+import AllCourses from "./components/CourseAll/AllCourses.jsx";
+
 // Create router with basic routes
 const router = createBrowserRouter([
   {
@@ -32,6 +34,8 @@ const router = createBrowserRouter([
       { path: "/dashboard/courses", element: <CourseManage /> },
       { path: "/dashboard/academic-history", element: <AcadHistory /> },
       { path: "/dashboard/advisor-notes", element: <AdvisorNotes /> },
+      
+      
     ],
   },
   {
@@ -55,6 +59,16 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute requiredRole="advisor">
         <AdvisorPanel />
+      </ProtectedRoute>
+    ),
+  },
+
+  //added by aqib
+  {
+    path: "/course",
+    element: (
+      <ProtectedRoute>
+        <AllCourses />
       </ProtectedRoute>
     ),
   },
